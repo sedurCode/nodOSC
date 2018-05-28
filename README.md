@@ -14,3 +14,4 @@ Eventually I may design a version with a custom battery and LSM303 motherboard, 
 
 Wireless head tracker to OSC project using particle photon and LSM303DLHC
 
+![First Prototype Image](https://github.com/sedurCode/nodOSC/blob/develop/photonheadtracker.jpg)
