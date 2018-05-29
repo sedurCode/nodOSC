@@ -6,12 +6,13 @@
 #include <Adafruit_Sensor.h>
 #include "math.h"
 
+SYSTEM_THREAD(ENABLED);
 
 UDP udp;
 
 unsigned int outPort = 7400;
 
-IPAddress outIp(192,168,36,79);
+IPAddress outIp(192,168,36,254);
 //IPAddress outIp(192,168,1,79);
 
 ArmaFilter armaFilter;
@@ -115,9 +116,14 @@ void loop(void)
   outMessage.addFloat(float(heading));
   outMessage.send(udp,outIp,outPort);
 
+
   OSCMessage outMessageSmooth("/pongsmooth");
   outMessageSmooth.addFloat(smoothDirection);
   outMessageSmooth.send(udp,outIp,outPort);
+
+  Serial.print  ("Heading:       "); Serial.println(heading, DEC);
+  Serial.print  ("Direction:     "); Serial.println(smoothDirection, DEC);
+  Serial.flush();
 
 //  if(Udp.sendPacket(buffer, sizeof(buffer), remoteIP, sendPort) < 0)
 //  {

@@ -13,5 +13,6 @@ export GCC_PREFIX=/home/sedur/compilers/gcc-arm-none-eabi-5_3-2016q1/bin/arm-non
 #export GCC_PREFIX=~/devel/OwlWare/Tools/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-
 # export GCC_PREFIX=arm-none-eabi-
 export APP=nodOSC
+#export APP=tinker
 export WARNINGS_AS_ERRORS=n
 make $*
