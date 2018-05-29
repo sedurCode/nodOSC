@@ -15,3 +15,10 @@ Eventually I may design a version with a custom battery and LSM303 motherboard, 
 Wireless head tracker to OSC project using particle photon and LSM303DLHC
 
 ![First Prototype Image](https://github.com/sedurCode/nodOSC/blob/develop/photonheadtracker.jpg)
+
+# Sources
+This project borrows heavily / I am learning from the work of Rebel Technologies 'Open Sound Module'. Please go support them and buy / contribute to their projects!
+https://github.com/pingdynasty/OpenSoundModule
+
+This project includes the Particle firmware for the Particle Photon board, and I am very grateful for their hard work and the quality of the community. Go and support them! 
+https://github.com/particle-iot/firmware
