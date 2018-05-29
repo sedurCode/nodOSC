@@ -25,23 +25,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  10 .debug_aranges 000005b8  00000000  00000000  00023c20  2**3
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_info   0001405a  00000000  00000000  000241d8  2**0
+ 11 .debug_info   00014066  00000000  00000000  000241d8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_abbrev 000027bc  00000000  00000000  00038232  2**0
+ 12 .debug_abbrev 000027c2  00000000  00000000  0003823e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   00003dfa  00000000  00000000  0003a9ee  2**0
+ 13 .debug_line   00003dfa  00000000  00000000  0003aa00  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_frame  00000ecc  00000000  00000000  0003e7e8  2**2
+ 14 .debug_frame  00000ecc  00000000  00000000  0003e7fc  2**2
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_str    00004dc8  00000000  00000000  0003f6b4  2**0
+ 15 .debug_str    00004e37  00000000  00000000  0003f6c8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_loc    00007e3a  00000000  00000000  0004447c  2**0
+ 16 .debug_loc    00007e3a  00000000  00000000  000444ff  2**0
                   CONTENTS, READONLY, DEBUGGING
  17 .module_info_suffix 00000028  08003b50  08003b50  00023b50  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
  18 .module_info_crc 00000004  08003b78  08003b78  00023b78  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
- 19 .debug_ranges 00001150  00000000  00000000  0004c2b8  2**3
+ 19 .debug_ranges 00001150  00000000  00000000  0004c340  2**3
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -132,7 +132,7 @@ void PWR_BackupAccessCmd(FunctionalState NewState)
  8000204:	6c6b      	ldr	r3, [r5, #68]	; 0x44
  8000206:	f443 4380 	orr.w	r3, r3, #16384	; 0x4000
  800020a:	646b      	str	r3, [r5, #68]	; 0x44
- 800020c:	f001 fbfc 	bl	8001a08 <Timer_Configure.lto_priv.123>
+ 800020c:	f001 fbfc 	bl	8001a08 <Timer_Configure.lto_priv.126>
  8000210:	8c23      	ldrh	r3, [r4, #32]
  8000212:	4620      	mov	r0, r4
  8000214:	f023 0301 	bic.w	r3, r3, #1
@@ -244,16 +244,16 @@ void PWR_BackupAccessCmd(FunctionalState NewState)
   /* Write to TIMx CCMR1 register */
   TIMx->CCMR1 = tmpccmr1;
  800024e:	8323      	strh	r3, [r4, #24]
- 8000250:	f001 fb0e 	bl	8001870 <Timer_Configure_Pwm.lto_priv.122>
+ 8000250:	f001 fb0e 	bl	8001870 <Timer_Configure_Pwm.lto_priv.125>
  8000254:	4620      	mov	r0, r4
  8000256:	2108      	movs	r1, #8
- 8000258:	f001 fb0a 	bl	8001870 <Timer_Configure_Pwm.lto_priv.122>
+ 8000258:	f001 fb0a 	bl	8001870 <Timer_Configure_Pwm.lto_priv.125>
  800025c:	4620      	mov	r0, r4
  800025e:	210c      	movs	r1, #12
- 8000260:	f001 fb06 	bl	8001870 <Timer_Configure_Pwm.lto_priv.122>
+ 8000260:	f001 fb06 	bl	8001870 <Timer_Configure_Pwm.lto_priv.125>
  8000264:	4620      	mov	r0, r4
  8000266:	4631      	mov	r1, r6
- 8000268:	f001 fbce 	bl	8001a08 <Timer_Configure.lto_priv.123>
+ 8000268:	f001 fbce 	bl	8001a08 <Timer_Configure.lto_priv.126>
  800026c:	2260      	movs	r2, #96	; 0x60
  800026e:	498a      	ldr	r1, [pc, #552]	; (8000498 <link_module_info_end+0x2fc>)
  8000270:	488a      	ldr	r0, [pc, #552]	; (800049c <link_module_info_end+0x300>)
@@ -282,10 +282,10 @@ void PWR_BackupAccessCmd(FunctionalState NewState)
  80002b2:	e89c 0003 	ldmia.w	ip, {r0, r1}
  80002b6:	e88e 0003 	stmia.w	lr, {r0, r1}
  80002ba:	2101      	movs	r1, #1
- 80002bc:	f001 fba4 	bl	8001a08 <Timer_Configure.lto_priv.123>
+ 80002bc:	f001 fba4 	bl	8001a08 <Timer_Configure.lto_priv.126>
  80002c0:	8aa1      	ldrh	r1, [r4, #20]
  80002c2:	6920      	ldr	r0, [r4, #16]
- 80002c4:	f001 fad4 	bl	8001870 <Timer_Configure_Pwm.lto_priv.122>
+ 80002c4:	f001 fad4 	bl	8001870 <Timer_Configure_Pwm.lto_priv.125>
   assert_param(IS_RCC_AHB1_CLOCK_PERIPH(RCC_AHB1Periph));
 
   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -529,7 +529,7 @@ void get_led_theme_colors(uint32_t* firmware_update, uint32_t* safe_mode, uint32
         *firmware_update = led_signal_color(LED_SIGNAL_FIRMWARE_UPDATE, d);
  80003e4:	4601      	mov	r1, r0
  80003e6:	200b      	movs	r0, #11
- 80003e8:	f002 fc80 	bl	8002cec <led_signal_color.lto_priv.121>
+ 80003e8:	f002 fc80 	bl	8002cec <led_signal_color.lto_priv.124>
  80003ec:	4b34      	ldr	r3, [pc, #208]	; (80004c0 <link_module_info_end+0x324>)
         *safe_mode = led_signal_color(LED_SIGNAL_SAFE_MODE, d);
  80003ee:	4629      	mov	r1, r5
@@ -542,7 +542,7 @@ void get_led_theme_colors(uint32_t* firmware_update, uint32_t* safe_mode, uint32
  80003f0:	6018      	str	r0, [r3, #0]
         *safe_mode = led_signal_color(LED_SIGNAL_SAFE_MODE, d);
  80003f2:	2008      	movs	r0, #8
- 80003f4:	f002 fc7a 	bl	8002cec <led_signal_color.lto_priv.121>
+ 80003f4:	f002 fc7a 	bl	8002cec <led_signal_color.lto_priv.124>
  80003f8:	4b32      	ldr	r3, [pc, #200]	; (80004c4 <link_module_info_end+0x328>)
         *dfu_mode = led_signal_color(LED_SIGNAL_DFU_MODE, d);
  80003fa:	4629      	mov	r1, r5
@@ -555,7 +555,7 @@ void get_led_theme_colors(uint32_t* firmware_update, uint32_t* safe_mode, uint32
  80003fc:	6018      	str	r0, [r3, #0]
         *dfu_mode = led_signal_color(LED_SIGNAL_DFU_MODE, d);
  80003fe:	200a      	movs	r0, #10
- 8000400:	f002 fc74 	bl	8002cec <led_signal_color.lto_priv.121>
+ 8000400:	f002 fc74 	bl	8002cec <led_signal_color.lto_priv.124>
  8000404:	4b30      	ldr	r3, [pc, #192]	; (80004c8 <link_module_info_end+0x32c>)
  8000406:	6018      	str	r0, [r3, #0]
     //--------------------------------------------------------------------------
@@ -1052,7 +1052,7 @@ void RCC_ClearFlag(void)
  8000698:	f000 80df 	beq.w	800085a <link_module_info_end+0x6be>
                     // we have a valid image to fall back to, so just reset
                     NVIC_SystemReset();
- 800069c:	f001 fc2a 	bl	8001ef4 <NVIC_SystemReset.lto_priv.94.lto_priv.97>
+ 800069c:	f001 fc2a 	bl	8001ef4 <NVIC_SystemReset.lto_priv.96.lto_priv.99>
             }
         } else {
             // This else clause is only for JTAG debugging
@@ -1544,7 +1544,7 @@ void IWDG_Enable(void)
  8000a22:	f36f 4351 	bfc	r3, #17, #1
  8000a26:	f36f 43d3 	bfc	r3, #19, #1
  8000a2a:	60d3      	str	r3, [r2, #12]
- 8000a2c:	f000 fc0c 	bl	8001248 <USB_OTG_CoreReset.isra.1.lto_priv.120>
+ 8000a2c:	f000 fc0c 	bl	8001248 <USB_OTG_CoreReset.isra.1.lto_priv.123>
  8000a30:	78e3      	ldrb	r3, [r4, #3]
  8000a32:	2b01      	cmp	r3, #1
  8000a34:	d14c      	bne.n	8000ad0 <link_module_info_end+0x934>
@@ -1583,7 +1583,7 @@ void IWDG_Enable(void)
  8000aaa:	68d3      	ldr	r3, [r2, #12]
  8000aac:	f043 0340 	orr.w	r3, r3, #64	; 0x40
  8000ab0:	60d3      	str	r3, [r2, #12]
- 8000ab2:	f000 fbc9 	bl	8001248 <USB_OTG_CoreReset.isra.1.lto_priv.120>
+ 8000ab2:	f000 fbc9 	bl	8001248 <USB_OTG_CoreReset.isra.1.lto_priv.123>
  8000ab6:	7a73      	ldrb	r3, [r6, #9]
  8000ab8:	68e2      	ldr	r2, [r4, #12]
  8000aba:	2b00      	cmp	r3, #0
@@ -1775,21 +1775,21 @@ void IWDG_Enable(void)
  8000ca0:	747e      	strb	r6, [r7, #17]
  8000ca2:	74bd      	strb	r5, [r7, #18]
  8000ca4:	74fc      	strb	r4, [r7, #19]
- 8000ca6:	f000 fbbf 	bl	8001428 <NVIC_Init.part.0>
+ 8000ca6:	f000 fbbf 	bl	8001428 <NVIC_Init.part.0.lto_priv.93>
  8000caa:	234a      	movs	r3, #74	; 0x4a
  8000cac:	f107 0010 	add.w	r0, r7, #16
  8000cb0:	743b      	strb	r3, [r7, #16]
  8000cb2:	747e      	strb	r6, [r7, #17]
  8000cb4:	74bd      	strb	r5, [r7, #18]
  8000cb6:	74fc      	strb	r4, [r7, #19]
- 8000cb8:	f000 fbb6 	bl	8001428 <NVIC_Init.part.0>
+ 8000cb8:	f000 fbb6 	bl	8001428 <NVIC_Init.part.0.lto_priv.93>
  8000cbc:	234b      	movs	r3, #75	; 0x4b
  8000cbe:	f107 0010 	add.w	r0, r7, #16
  8000cc2:	743b      	strb	r3, [r7, #16]
  8000cc4:	747e      	strb	r6, [r7, #17]
  8000cc6:	74bd      	strb	r5, [r7, #18]
  8000cc8:	74fc      	strb	r4, [r7, #19]
- 8000cca:	f000 fbad 	bl	8001428 <NVIC_Init.part.0>
+ 8000cca:	f000 fbad 	bl	8001428 <NVIC_Init.part.0.lto_priv.93>
  8000cce:	e7fe      	b.n	8000cce <link_module_info_end+0xb32>
  8000cd0:	200036ec 	.word	0x200036ec
  8000cd4:	00030d41 	.word	0x00030d41
@@ -1798,19 +1798,19 @@ void IWDG_Enable(void)
  8000ce0:	00010103 	.word	0x00010103
  8000ce4:	80000800 	.word	0x80000800
 
-08000ce8 <USBD_DataOutStage.lto_priv.99>:
+08000ce8 <USBD_DataOutStage.lto_priv.101>:
  8000ce8:	b538      	push	{r3, r4, r5, lr}
  8000cea:	4604      	mov	r4, r0
  8000cec:	460d      	mov	r5, r1
  8000cee:	2900      	cmp	r1, #0
- 8000cf0:	d138      	bne.n	8000d64 <USBD_DataOutStage.lto_priv.99+0x7c>
+ 8000cf0:	d138      	bne.n	8000d64 <USBD_DataOutStage.lto_priv.101+0x7c>
  8000cf2:	f890 30e1 	ldrb.w	r3, [r0, #225]	; 0xe1
  8000cf6:	2b03      	cmp	r3, #3
- 8000cf8:	d13d      	bne.n	8000d76 <USBD_DataOutStage.lto_priv.99+0x8e>
+ 8000cf8:	d13d      	bne.n	8000d76 <USBD_DataOutStage.lto_priv.101+0x8e>
  8000cfa:	f8d0 12e8 	ldr.w	r1, [r0, #744]	; 0x2e8
  8000cfe:	f8d0 22d4 	ldr.w	r2, [r0, #724]	; 0x2d4
  8000d02:	4291      	cmp	r1, r2
- 8000d04:	d913      	bls.n	8000d2e <USBD_DataOutStage.lto_priv.99+0x46>
+ 8000d04:	d913      	bls.n	8000d2e <USBD_DataOutStage.lto_priv.101+0x46>
  8000d06:	1a8b      	subs	r3, r1, r2
  8000d08:	78c1      	ldrb	r1, [r0, #3]
  8000d0a:	f8c0 32e8 	str.w	r3, [r0, #744]	; 0x2e8
@@ -1825,35 +1825,35 @@ void IWDG_Enable(void)
  8000d22:	f8d0 12d8 	ldr.w	r1, [r0, #728]	; 0x2d8
  8000d26:	b292      	uxth	r2, r2
  8000d28:	f002 fbbe 	bl	80034a8 <DCD_EP_PrepareRx.constprop.7>
- 8000d2c:	e023      	b.n	8000d76 <USBD_DataOutStage.lto_priv.99+0x8e>
+ 8000d2c:	e023      	b.n	8000d76 <USBD_DataOutStage.lto_priv.101+0x8e>
  8000d2e:	f8d0 34c8 	ldr.w	r3, [r0, #1224]	; 0x4c8
- 8000d32:	b19b      	cbz	r3, 8000d5c <USBD_DataOutStage.lto_priv.99+0x74>
+ 8000d32:	b19b      	cbz	r3, 8000d5c <USBD_DataOutStage.lto_priv.101+0x74>
  8000d34:	69db      	ldr	r3, [r3, #28]
- 8000d36:	b18b      	cbz	r3, 8000d5c <USBD_DataOutStage.lto_priv.99+0x74>
+ 8000d36:	b18b      	cbz	r3, 8000d5c <USBD_DataOutStage.lto_priv.101+0x74>
  8000d38:	f890 20e2 	ldrb.w	r2, [r0, #226]	; 0xe2
  8000d3c:	2a03      	cmp	r2, #3
- 8000d3e:	d10d      	bne.n	8000d5c <USBD_DataOutStage.lto_priv.99+0x74>
+ 8000d3e:	d10d      	bne.n	8000d5c <USBD_DataOutStage.lto_priv.101+0x74>
  8000d40:	2101      	movs	r1, #1
  8000d42:	4628      	mov	r0, r5
  8000d44:	4798      	blx	r3
- 8000d46:	b148      	cbz	r0, 8000d5c <USBD_DataOutStage.lto_priv.99+0x74>
+ 8000d46:	b148      	cbz	r0, 8000d5c <USBD_DataOutStage.lto_priv.101+0x74>
  8000d48:	f8d4 34c4 	ldr.w	r3, [r4, #1220]	; 0x4c4
  8000d4c:	691b      	ldr	r3, [r3, #16]
- 8000d4e:	b12b      	cbz	r3, 8000d5c <USBD_DataOutStage.lto_priv.99+0x74>
+ 8000d4e:	b12b      	cbz	r3, 8000d5c <USBD_DataOutStage.lto_priv.101+0x74>
  8000d50:	f894 20e2 	ldrb.w	r2, [r4, #226]	; 0xe2
  8000d54:	2a03      	cmp	r2, #3
- 8000d56:	d101      	bne.n	8000d5c <USBD_DataOutStage.lto_priv.99+0x74>
+ 8000d56:	d101      	bne.n	8000d5c <USBD_DataOutStage.lto_priv.101+0x74>
  8000d58:	4620      	mov	r0, r4
  8000d5a:	4798      	blx	r3
  8000d5c:	4620      	mov	r0, r4
  8000d5e:	f001 f979 	bl	8002054 <USBD_CtlSendStatus>
- 8000d62:	e008      	b.n	8000d76 <USBD_DataOutStage.lto_priv.99+0x8e>
+ 8000d62:	e008      	b.n	8000d76 <USBD_DataOutStage.lto_priv.101+0x8e>
  8000d64:	f8d0 34c4 	ldr.w	r3, [r0, #1220]	; 0x4c4
  8000d68:	699b      	ldr	r3, [r3, #24]
- 8000d6a:	b123      	cbz	r3, 8000d76 <USBD_DataOutStage.lto_priv.99+0x8e>
+ 8000d6a:	b123      	cbz	r3, 8000d76 <USBD_DataOutStage.lto_priv.101+0x8e>
  8000d6c:	f890 20e2 	ldrb.w	r2, [r0, #226]	; 0xe2
  8000d70:	2a03      	cmp	r2, #3
- 8000d72:	d100      	bne.n	8000d76 <USBD_DataOutStage.lto_priv.99+0x8e>
+ 8000d72:	d100      	bne.n	8000d76 <USBD_DataOutStage.lto_priv.101+0x8e>
  8000d74:	4798      	blx	r3
  8000d76:	2000      	movs	r0, #0
  8000d78:	bd38      	pop	{r3, r4, r5, pc}
@@ -1899,7 +1899,7 @@ void IWDG_Enable(void)
  8000dd8:	2000      	movs	r0, #0
  8000dda:	bd10      	pop	{r4, pc}
 
-08000ddc <USBD_SetupStage.lto_priv.101>:
+08000ddc <USBD_SetupStage.lto_priv.103>:
  8000ddc:	b5f0      	push	{r4, r5, r6, r7, lr}
  8000dde:	f890 24af 	ldrb.w	r2, [r0, #1199]	; 0x4af
  8000de2:	f890 34ae 	ldrb.w	r3, [r0, #1198]	; 0x4ae
@@ -1927,33 +1927,33 @@ void IWDG_Enable(void)
  8000e2c:	f8ad 500c 	strh.w	r5, [sp, #12]
  8000e30:	f8ad 200e 	strh.w	r2, [sp, #14]
  8000e34:	f8c0 2110 	str.w	r2, [r0, #272]	; 0x110
- 8000e38:	f000 8172 	beq.w	8001120 <USBD_SetupStage.lto_priv.101+0x344>
- 8000e3c:	d303      	bcc.n	8000e46 <USBD_SetupStage.lto_priv.101+0x6a>
+ 8000e38:	f000 8172 	beq.w	8001120 <USBD_SetupStage.lto_priv.103+0x344>
+ 8000e3c:	d303      	bcc.n	8000e46 <USBD_SetupStage.lto_priv.103+0x6a>
  8000e3e:	2f02      	cmp	r7, #2
- 8000e40:	f000 8182 	beq.w	8001148 <USBD_SetupStage.lto_priv.101+0x36c>
- 8000e44:	e1ec      	b.n	8001220 <USBD_SetupStage.lto_priv.101+0x444>
+ 8000e40:	f000 8182 	beq.w	8001148 <USBD_SetupStage.lto_priv.103+0x36c>
+ 8000e44:	e1ec      	b.n	8001220 <USBD_SetupStage.lto_priv.103+0x444>
  8000e46:	f001 0160 	and.w	r1, r1, #96	; 0x60
  8000e4a:	2940      	cmp	r1, #64	; 0x40
- 8000e4c:	d116      	bne.n	8000e7c <USBD_SetupStage.lto_priv.101+0xa0>
+ 8000e4c:	d116      	bne.n	8000e7c <USBD_SetupStage.lto_priv.103+0xa0>
  8000e4e:	f8d0 34c8 	ldr.w	r3, [r0, #1224]	; 0x4c8
  8000e52:	2b00      	cmp	r3, #0
- 8000e54:	f000 81e8 	beq.w	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 8000e54:	f000 81e8 	beq.w	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  8000e58:	69db      	ldr	r3, [r3, #28]
  8000e5a:	2b00      	cmp	r3, #0
- 8000e5c:	f000 81e4 	beq.w	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 8000e5c:	f000 81e4 	beq.w	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  8000e60:	2100      	movs	r1, #0
  8000e62:	a802      	add	r0, sp, #8
  8000e64:	4798      	blx	r3
  8000e66:	f8bd 300e 	ldrh.w	r3, [sp, #14]
- 8000e6a:	b91b      	cbnz	r3, 8000e74 <USBD_SetupStage.lto_priv.101+0x98>
+ 8000e6a:	b91b      	cbnz	r3, 8000e74 <USBD_SetupStage.lto_priv.103+0x98>
  8000e6c:	2800      	cmp	r0, #0
- 8000e6e:	f040 815e 	bne.w	800112e <USBD_SetupStage.lto_priv.101+0x352>
- 8000e72:	e0e5      	b.n	8001040 <USBD_SetupStage.lto_priv.101+0x264>
+ 8000e6e:	f040 815e 	bne.w	800112e <USBD_SetupStage.lto_priv.103+0x352>
+ 8000e72:	e0e5      	b.n	8001040 <USBD_SetupStage.lto_priv.103+0x264>
  8000e74:	2800      	cmp	r0, #0
- 8000e76:	f000 81d7 	beq.w	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
- 8000e7a:	e158      	b.n	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 8000e76:	f000 81d7 	beq.w	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
+ 8000e7a:	e158      	b.n	800112e <USBD_SetupStage.lto_priv.103+0x352>
  8000e7c:	2e09      	cmp	r6, #9
- 8000e7e:	f200 8156 	bhi.w	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 8000e7e:	f200 8156 	bhi.w	800112e <USBD_SetupStage.lto_priv.103+0x352>
  8000e82:	e8df f016 	tbh	[pc, r6, lsl #1]
  8000e86:	0105      	.short	0x0105
  8000e88:	01540143 	.word	0x01540143
@@ -1964,7 +1964,7 @@ void IWDG_Enable(void)
  8000e9a:	0a1a      	lsrs	r2, r3, #8
  8000e9c:	3a01      	subs	r2, #1
  8000e9e:	2a06      	cmp	r2, #6
- 8000ea0:	f200 8145 	bhi.w	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 8000ea0:	f200 8145 	bhi.w	800112e <USBD_SetupStage.lto_priv.103+0x352>
  8000ea4:	e8df f012 	tbh	[pc, r2, lsl #1]
  8000ea8:	001a0007 	.word	0x001a0007
  8000eac:	01430033 	.word	0x01430033
@@ -1977,13 +1977,13 @@ void IWDG_Enable(void)
  8000ec2:	4798      	blx	r3
  8000ec4:	f8bd 300e 	ldrh.w	r3, [sp, #14]
  8000ec8:	2b40      	cmp	r3, #64	; 0x40
- 8000eca:	d003      	beq.n	8000ed4 <USBD_SetupStage.lto_priv.101+0xf8>
+ 8000eca:	d003      	beq.n	8000ed4 <USBD_SetupStage.lto_priv.103+0xf8>
  8000ecc:	f894 30e2 	ldrb.w	r3, [r4, #226]	; 0xe2
  8000ed0:	2b01      	cmp	r3, #1
- 8000ed2:	d16f      	bne.n	8000fb4 <USBD_SetupStage.lto_priv.101+0x1d8>
+ 8000ed2:	d16f      	bne.n	8000fb4 <USBD_SetupStage.lto_priv.103+0x1d8>
  8000ed4:	2308      	movs	r3, #8
  8000ed6:	f8ad 3006 	strh.w	r3, [sp, #6]
- 8000eda:	e06b      	b.n	8000fb4 <USBD_SetupStage.lto_priv.101+0x1d8>
+ 8000eda:	e06b      	b.n	8000fb4 <USBD_SetupStage.lto_priv.103+0x1d8>
  8000edc:	f8d0 24c4 	ldr.w	r2, [r0, #1220]	; 0x4c4
  8000ee0:	f10d 0106 	add.w	r1, sp, #6
  8000ee4:	b2d8      	uxtb	r0, r3
@@ -1991,10 +1991,10 @@ void IWDG_Enable(void)
  8000ee8:	4790      	blx	r2
  8000eea:	78a3      	ldrb	r3, [r4, #2]
  8000eec:	2b01      	cmp	r3, #1
- 8000eee:	d109      	bne.n	8000f04 <USBD_SetupStage.lto_priv.101+0x128>
+ 8000eee:	d109      	bne.n	8000f04 <USBD_SetupStage.lto_priv.103+0x128>
  8000ef0:	7a23      	ldrb	r3, [r4, #8]
  8000ef2:	2b01      	cmp	r3, #1
- 8000ef4:	d106      	bne.n	8000f04 <USBD_SetupStage.lto_priv.101+0x128>
+ 8000ef4:	d106      	bne.n	8000f04 <USBD_SetupStage.lto_priv.103+0x128>
  8000ef6:	f8d4 24c4 	ldr.w	r2, [r4, #1220]	; 0x4c4
  8000efa:	f10d 0106 	add.w	r1, sp, #6
  8000efe:	6ad2      	ldr	r2, [r2, #44]	; 0x2c
@@ -2003,56 +2003,56 @@ void IWDG_Enable(void)
  8000f04:	2302      	movs	r3, #2
  8000f06:	7043      	strb	r3, [r0, #1]
  8000f08:	f8c4 04d0 	str.w	r0, [r4, #1232]	; 0x4d0
- 8000f0c:	e052      	b.n	8000fb4 <USBD_SetupStage.lto_priv.101+0x1d8>
+ 8000f0c:	e052      	b.n	8000fb4 <USBD_SetupStage.lto_priv.103+0x1d8>
  8000f0e:	b2d9      	uxtb	r1, r3
  8000f10:	2903      	cmp	r1, #3
  8000f12:	7880      	ldrb	r0, [r0, #2]
- 8000f14:	d014      	beq.n	8000f40 <USBD_SetupStage.lto_priv.101+0x164>
- 8000f16:	d806      	bhi.n	8000f26 <USBD_SetupStage.lto_priv.101+0x14a>
+ 8000f14:	d014      	beq.n	8000f40 <USBD_SetupStage.lto_priv.103+0x164>
+ 8000f16:	d806      	bhi.n	8000f26 <USBD_SetupStage.lto_priv.103+0x14a>
  8000f18:	2901      	cmp	r1, #1
  8000f1a:	f8d4 34cc 	ldr.w	r3, [r4, #1228]	; 0x4cc
- 8000f1e:	d008      	beq.n	8000f32 <USBD_SetupStage.lto_priv.101+0x156>
- 8000f20:	d80c      	bhi.n	8000f3c <USBD_SetupStage.lto_priv.101+0x160>
+ 8000f1e:	d008      	beq.n	8000f32 <USBD_SetupStage.lto_priv.103+0x156>
+ 8000f20:	d80c      	bhi.n	8000f3c <USBD_SetupStage.lto_priv.103+0x160>
  8000f22:	685b      	ldr	r3, [r3, #4]
- 8000f24:	e006      	b.n	8000f34 <USBD_SetupStage.lto_priv.101+0x158>
+ 8000f24:	e006      	b.n	8000f34 <USBD_SetupStage.lto_priv.103+0x158>
  8000f26:	2905      	cmp	r1, #5
- 8000f28:	d012      	beq.n	8000f50 <USBD_SetupStage.lto_priv.101+0x174>
- 8000f2a:	d30d      	bcc.n	8000f48 <USBD_SetupStage.lto_priv.101+0x16c>
+ 8000f28:	d012      	beq.n	8000f50 <USBD_SetupStage.lto_priv.103+0x174>
+ 8000f2a:	d30d      	bcc.n	8000f48 <USBD_SetupStage.lto_priv.103+0x16c>
  8000f2c:	29ee      	cmp	r1, #238	; 0xee
- 8000f2e:	d013      	beq.n	8000f58 <USBD_SetupStage.lto_priv.101+0x17c>
- 8000f30:	e017      	b.n	8000f62 <USBD_SetupStage.lto_priv.101+0x186>
+ 8000f2e:	d013      	beq.n	8000f58 <USBD_SetupStage.lto_priv.103+0x17c>
+ 8000f30:	e017      	b.n	8000f62 <USBD_SetupStage.lto_priv.103+0x186>
  8000f32:	689b      	ldr	r3, [r3, #8]
  8000f34:	f10d 0106 	add.w	r1, sp, #6
  8000f38:	4798      	blx	r3
- 8000f3a:	e03b      	b.n	8000fb4 <USBD_SetupStage.lto_priv.101+0x1d8>
+ 8000f3a:	e03b      	b.n	8000fb4 <USBD_SetupStage.lto_priv.103+0x1d8>
  8000f3c:	68db      	ldr	r3, [r3, #12]
- 8000f3e:	e7f9      	b.n	8000f34 <USBD_SetupStage.lto_priv.101+0x158>
+ 8000f3e:	e7f9      	b.n	8000f34 <USBD_SetupStage.lto_priv.103+0x158>
  8000f40:	f8d4 34cc 	ldr.w	r3, [r4, #1228]	; 0x4cc
  8000f44:	691b      	ldr	r3, [r3, #16]
- 8000f46:	e7f5      	b.n	8000f34 <USBD_SetupStage.lto_priv.101+0x158>
+ 8000f46:	e7f5      	b.n	8000f34 <USBD_SetupStage.lto_priv.103+0x158>
  8000f48:	f8d4 34cc 	ldr.w	r3, [r4, #1228]	; 0x4cc
  8000f4c:	695b      	ldr	r3, [r3, #20]
- 8000f4e:	e7f1      	b.n	8000f34 <USBD_SetupStage.lto_priv.101+0x158>
+ 8000f4e:	e7f1      	b.n	8000f34 <USBD_SetupStage.lto_priv.103+0x158>
  8000f50:	f8d4 34cc 	ldr.w	r3, [r4, #1228]	; 0x4cc
  8000f54:	699b      	ldr	r3, [r3, #24]
- 8000f56:	e7ed      	b.n	8000f34 <USBD_SetupStage.lto_priv.101+0x158>
+ 8000f56:	e7ed      	b.n	8000f34 <USBD_SetupStage.lto_priv.103+0x158>
  8000f58:	f8d4 34cc 	ldr.w	r3, [r4, #1228]	; 0x4cc
  8000f5c:	69db      	ldr	r3, [r3, #28]
  8000f5e:	2b00      	cmp	r3, #0
- 8000f60:	d1e8      	bne.n	8000f34 <USBD_SetupStage.lto_priv.101+0x158>
+ 8000f60:	d1e8      	bne.n	8000f34 <USBD_SetupStage.lto_priv.103+0x158>
  8000f62:	f8d4 34c4 	ldr.w	r3, [r4, #1220]	; 0x4c4
  8000f66:	f10d 0206 	add.w	r2, sp, #6
  8000f6a:	6b1b      	ldr	r3, [r3, #48]	; 0x30
  8000f6c:	4798      	blx	r3
- 8000f6e:	e021      	b.n	8000fb4 <USBD_SetupStage.lto_priv.101+0x1d8>
+ 8000f6e:	e021      	b.n	8000fb4 <USBD_SetupStage.lto_priv.103+0x1d8>
  8000f70:	7880      	ldrb	r0, [r0, #2]
  8000f72:	2800      	cmp	r0, #0
- 8000f74:	f040 80db 	bne.w	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 8000f74:	f040 80db 	bne.w	800112e <USBD_SetupStage.lto_priv.103+0x352>
  8000f78:	f8d4 34c4 	ldr.w	r3, [r4, #1220]	; 0x4c4
  8000f7c:	f10d 0106 	add.w	r1, sp, #6
  8000f80:	6a9b      	ldr	r3, [r3, #40]	; 0x28
  8000f82:	4798      	blx	r3
- 8000f84:	49aa      	ldr	r1, [pc, #680]	; (8001230 <USBD_SetupStage.lto_priv.101+0x454>)
+ 8000f84:	49aa      	ldr	r1, [pc, #680]	; (8001230 <USBD_SetupStage.lto_priv.103+0x454>)
  8000f86:	7b83      	ldrb	r3, [r0, #14]
  8000f88:	710b      	strb	r3, [r1, #4]
  8000f8a:	7bc3      	ldrb	r3, [r0, #15]
@@ -2062,10 +2062,10 @@ void IWDG_Enable(void)
  8000f92:	718b      	strb	r3, [r1, #6]
  8000f94:	230a      	movs	r3, #10
  8000f96:	f8ad 3006 	strh.w	r3, [sp, #6]
- 8000f9a:	e00b      	b.n	8000fb4 <USBD_SetupStage.lto_priv.101+0x1d8>
+ 8000f9a:	e00b      	b.n	8000fb4 <USBD_SetupStage.lto_priv.103+0x1d8>
  8000f9c:	7880      	ldrb	r0, [r0, #2]
  8000f9e:	2800      	cmp	r0, #0
- 8000fa0:	f040 80c5 	bne.w	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 8000fa0:	f040 80c5 	bne.w	800112e <USBD_SetupStage.lto_priv.103+0x352>
  8000fa4:	f8d4 34c4 	ldr.w	r3, [r4, #1220]	; 0x4c4
  8000fa8:	f10d 0106 	add.w	r1, sp, #6
  8000fac:	6adb      	ldr	r3, [r3, #44]	; 0x2c
@@ -2074,24 +2074,24 @@ void IWDG_Enable(void)
  8000fb2:	7043      	strb	r3, [r0, #1]
  8000fb4:	f8bd 2006 	ldrh.w	r2, [sp, #6]
  8000fb8:	2a00      	cmp	r2, #0
- 8000fba:	f000 8135 	beq.w	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 8000fba:	f000 8135 	beq.w	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  8000fbe:	f8bd 300e 	ldrh.w	r3, [sp, #14]
  8000fc2:	2b00      	cmp	r3, #0
- 8000fc4:	f000 8130 	beq.w	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 8000fc4:	f000 8130 	beq.w	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  8000fc8:	429a      	cmp	r2, r3
  8000fca:	bf28      	it	cs
  8000fcc:	461a      	movcs	r2, r3
  8000fce:	4601      	mov	r1, r0
  8000fd0:	f8ad 2006 	strh.w	r2, [sp, #6]
- 8000fd4:	e11c      	b.n	8001210 <USBD_SetupStage.lto_priv.101+0x434>
+ 8000fd4:	e11c      	b.n	8001210 <USBD_SetupStage.lto_priv.103+0x434>
  8000fd6:	2d00      	cmp	r5, #0
- 8000fd8:	f040 80a9 	bne.w	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 8000fd8:	f040 80a9 	bne.w	800112e <USBD_SetupStage.lto_priv.103+0x352>
  8000fdc:	2a00      	cmp	r2, #0
- 8000fde:	f040 80a6 	bne.w	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 8000fde:	f040 80a6 	bne.w	800112e <USBD_SetupStage.lto_priv.103+0x352>
  8000fe2:	f890 10e2 	ldrb.w	r1, [r0, #226]	; 0xe2
  8000fe6:	f003 057f 	and.w	r5, r3, #127	; 0x7f
  8000fea:	2903      	cmp	r1, #3
- 8000fec:	f000 809f 	beq.w	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 8000fec:	f000 809f 	beq.w	800112e <USBD_SetupStage.lto_priv.103+0x352>
  8000ff0:	6901      	ldr	r1, [r0, #16]
  8000ff2:	f880 50e4 	strb.w	r5, [r0, #228]	; 0xe4
  8000ff6:	f363 120a 	bfi	r2, r3, #4, #7
@@ -2099,24 +2099,24 @@ void IWDG_Enable(void)
  8000ffc:	431a      	orrs	r2, r3
  8000ffe:	600a      	str	r2, [r1, #0]
  8001000:	f001 f828 	bl	8002054 <USBD_CtlSendStatus>
- 8001004:	b10d      	cbz	r5, 800100a <USBD_SetupStage.lto_priv.101+0x22e>
+ 8001004:	b10d      	cbz	r5, 800100a <USBD_SetupStage.lto_priv.103+0x22e>
  8001006:	2302      	movs	r3, #2
- 8001008:	e000      	b.n	800100c <USBD_SetupStage.lto_priv.101+0x230>
+ 8001008:	e000      	b.n	800100c <USBD_SetupStage.lto_priv.103+0x230>
  800100a:	2301      	movs	r3, #1
  800100c:	f884 30e2 	strb.w	r3, [r4, #226]	; 0xe2
- 8001010:	e10a      	b.n	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 8001010:	e10a      	b.n	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  8001012:	b2d9      	uxtb	r1, r3
- 8001014:	4d87      	ldr	r5, [pc, #540]	; (8001234 <USBD_SetupStage.lto_priv.101+0x458>)
+ 8001014:	4d87      	ldr	r5, [pc, #540]	; (8001234 <USBD_SetupStage.lto_priv.103+0x458>)
  8001016:	2901      	cmp	r1, #1
  8001018:	7029      	strb	r1, [r5, #0]
- 800101a:	f200 8088 	bhi.w	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 800101a:	f200 8088 	bhi.w	800112e <USBD_SetupStage.lto_priv.103+0x352>
  800101e:	f890 30e2 	ldrb.w	r3, [r0, #226]	; 0xe2
  8001022:	2b02      	cmp	r3, #2
- 8001024:	d002      	beq.n	800102c <USBD_SetupStage.lto_priv.101+0x250>
+ 8001024:	d002      	beq.n	800102c <USBD_SetupStage.lto_priv.103+0x250>
  8001026:	2b03      	cmp	r3, #3
- 8001028:	d00e      	beq.n	8001048 <USBD_SetupStage.lto_priv.101+0x26c>
- 800102a:	e080      	b.n	800112e <USBD_SetupStage.lto_priv.101+0x352>
- 800102c:	b141      	cbz	r1, 8001040 <USBD_SetupStage.lto_priv.101+0x264>
+ 8001028:	d00e      	beq.n	8001048 <USBD_SetupStage.lto_priv.103+0x26c>
+ 800102a:	e080      	b.n	800112e <USBD_SetupStage.lto_priv.103+0x352>
+ 800102c:	b141      	cbz	r1, 8001040 <USBD_SetupStage.lto_priv.103+0x264>
  800102e:	2101      	movs	r1, #1
  8001030:	2303      	movs	r3, #3
  8001032:	f880 10e0 	strb.w	r1, [r0, #224]	; 0xe0
@@ -2125,138 +2125,138 @@ void IWDG_Enable(void)
  800103c:	f001 fab0 	bl	80025a0 <USBD_SetCfg>
  8001040:	4620      	mov	r0, r4
  8001042:	f001 f807 	bl	8002054 <USBD_CtlSendStatus>
- 8001046:	e0ef      	b.n	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
- 8001048:	b949      	cbnz	r1, 800105e <USBD_SetupStage.lto_priv.101+0x282>
+ 8001046:	e0ef      	b.n	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
+ 8001048:	b949      	cbnz	r1, 800105e <USBD_SetupStage.lto_priv.103+0x282>
  800104a:	2302      	movs	r3, #2
  800104c:	f880 30e2 	strb.w	r3, [r0, #226]	; 0xe2
  8001050:	f8d0 34c4 	ldr.w	r3, [r0, #1220]	; 0x4c4
  8001054:	f880 10e0 	strb.w	r1, [r0, #224]	; 0xe0
  8001058:	685b      	ldr	r3, [r3, #4]
  800105a:	4798      	blx	r3
- 800105c:	e7f0      	b.n	8001040 <USBD_SetupStage.lto_priv.101+0x264>
+ 800105c:	e7f0      	b.n	8001040 <USBD_SetupStage.lto_priv.103+0x264>
  800105e:	f890 10e0 	ldrb.w	r1, [r0, #224]	; 0xe0
  8001062:	2901      	cmp	r1, #1
- 8001064:	d0ec      	beq.n	8001040 <USBD_SetupStage.lto_priv.101+0x264>
+ 8001064:	d0ec      	beq.n	8001040 <USBD_SetupStage.lto_priv.103+0x264>
  8001066:	f8d0 34c4 	ldr.w	r3, [r0, #1220]	; 0x4c4
  800106a:	685b      	ldr	r3, [r3, #4]
  800106c:	4798      	blx	r3
  800106e:	7829      	ldrb	r1, [r5, #0]
  8001070:	f884 10e0 	strb.w	r1, [r4, #224]	; 0xe0
- 8001074:	e7e1      	b.n	800103a <USBD_SetupStage.lto_priv.101+0x25e>
+ 8001074:	e7e1      	b.n	800103a <USBD_SetupStage.lto_priv.103+0x25e>
  8001076:	2a01      	cmp	r2, #1
- 8001078:	d159      	bne.n	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 8001078:	d159      	bne.n	800112e <USBD_SetupStage.lto_priv.103+0x352>
  800107a:	f890 30e2 	ldrb.w	r3, [r0, #226]	; 0xe2
  800107e:	2b02      	cmp	r3, #2
- 8001080:	d004      	beq.n	800108c <USBD_SetupStage.lto_priv.101+0x2b0>
+ 8001080:	d004      	beq.n	800108c <USBD_SetupStage.lto_priv.103+0x2b0>
  8001082:	2b03      	cmp	r3, #3
- 8001084:	d153      	bne.n	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 8001084:	d153      	bne.n	800112e <USBD_SetupStage.lto_priv.103+0x352>
  8001086:	f100 01e0 	add.w	r1, r0, #224	; 0xe0
- 800108a:	e0c1      	b.n	8001210 <USBD_SetupStage.lto_priv.101+0x434>
- 800108c:	496a      	ldr	r1, [pc, #424]	; (8001238 <USBD_SetupStage.lto_priv.101+0x45c>)
- 800108e:	e0bf      	b.n	8001210 <USBD_SetupStage.lto_priv.101+0x434>
+ 800108a:	e0c1      	b.n	8001210 <USBD_SetupStage.lto_priv.103+0x434>
+ 800108c:	496a      	ldr	r1, [pc, #424]	; (8001238 <USBD_SetupStage.lto_priv.103+0x45c>)
+ 800108e:	e0bf      	b.n	8001210 <USBD_SetupStage.lto_priv.103+0x434>
  8001090:	f890 30e2 	ldrb.w	r3, [r0, #226]	; 0xe2
  8001094:	3b02      	subs	r3, #2
  8001096:	2b01      	cmp	r3, #1
- 8001098:	d849      	bhi.n	800112e <USBD_SetupStage.lto_priv.101+0x352>
- 800109a:	4b68      	ldr	r3, [pc, #416]	; (800123c <USBD_SetupStage.lto_priv.101+0x460>)
+ 8001098:	d849      	bhi.n	800112e <USBD_SetupStage.lto_priv.103+0x352>
+ 800109a:	4b68      	ldr	r3, [pc, #416]	; (800123c <USBD_SetupStage.lto_priv.103+0x460>)
  800109c:	2201      	movs	r2, #1
  800109e:	601a      	str	r2, [r3, #0]
  80010a0:	f8d0 20e8 	ldr.w	r2, [r0, #232]	; 0xe8
- 80010a4:	b10a      	cbz	r2, 80010aa <USBD_SetupStage.lto_priv.101+0x2ce>
+ 80010a4:	b10a      	cbz	r2, 80010aa <USBD_SetupStage.lto_priv.103+0x2ce>
  80010a6:	2203      	movs	r2, #3
  80010a8:	601a      	str	r2, [r3, #0]
  80010aa:	2202      	movs	r2, #2
- 80010ac:	4963      	ldr	r1, [pc, #396]	; (800123c <USBD_SetupStage.lto_priv.101+0x460>)
- 80010ae:	e0af      	b.n	8001210 <USBD_SetupStage.lto_priv.101+0x434>
+ 80010ac:	4963      	ldr	r1, [pc, #396]	; (800123c <USBD_SetupStage.lto_priv.103+0x460>)
+ 80010ae:	e0af      	b.n	8001210 <USBD_SetupStage.lto_priv.103+0x434>
  80010b0:	2b01      	cmp	r3, #1
- 80010b2:	d108      	bne.n	80010c6 <USBD_SetupStage.lto_priv.101+0x2ea>
+ 80010b2:	d108      	bne.n	80010c6 <USBD_SetupStage.lto_priv.103+0x2ea>
  80010b4:	f8c4 30e8 	str.w	r3, [r4, #232]	; 0xe8
  80010b8:	f8d4 34c4 	ldr.w	r3, [r4, #1220]	; 0x4c4
  80010bc:	a902      	add	r1, sp, #8
  80010be:	689b      	ldr	r3, [r3, #8]
  80010c0:	4620      	mov	r0, r4
  80010c2:	4798      	blx	r3
- 80010c4:	e7bc      	b.n	8001040 <USBD_SetupStage.lto_priv.101+0x264>
+ 80010c4:	e7bc      	b.n	8001040 <USBD_SetupStage.lto_priv.103+0x264>
  80010c6:	2b02      	cmp	r3, #2
- 80010c8:	f040 80ae 	bne.w	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 80010c8:	f040 80ae 	bne.w	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  80010cc:	f015 0fff 	tst.w	r5, #255	; 0xff
- 80010d0:	f040 80aa 	bne.w	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 80010d0:	f040 80aa 	bne.w	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  80010d4:	6903      	ldr	r3, [r0, #16]
  80010d6:	0a2d      	lsrs	r5, r5, #8
  80010d8:	3d01      	subs	r5, #1
  80010da:	685b      	ldr	r3, [r3, #4]
  80010dc:	2d04      	cmp	r5, #4
- 80010de:	d80f      	bhi.n	8001100 <USBD_SetupStage.lto_priv.101+0x324>
+ 80010de:	d80f      	bhi.n	8001100 <USBD_SetupStage.lto_priv.103+0x324>
  80010e0:	e8df f005 	tbb	[pc, r5]
  80010e4:	09070503 	.word	0x09070503
  80010e8:	0b          	.byte	0x0b
  80010e9:	00          	.byte	0x00
  80010ea:	2201      	movs	r2, #1
- 80010ec:	e006      	b.n	80010fc <USBD_SetupStage.lto_priv.101+0x320>
+ 80010ec:	e006      	b.n	80010fc <USBD_SetupStage.lto_priv.103+0x320>
  80010ee:	2202      	movs	r2, #2
- 80010f0:	e004      	b.n	80010fc <USBD_SetupStage.lto_priv.101+0x320>
+ 80010f0:	e004      	b.n	80010fc <USBD_SetupStage.lto_priv.103+0x320>
  80010f2:	2203      	movs	r2, #3
- 80010f4:	e002      	b.n	80010fc <USBD_SetupStage.lto_priv.101+0x320>
+ 80010f4:	e002      	b.n	80010fc <USBD_SetupStage.lto_priv.103+0x320>
  80010f6:	2204      	movs	r2, #4
- 80010f8:	e000      	b.n	80010fc <USBD_SetupStage.lto_priv.101+0x320>
+ 80010f8:	e000      	b.n	80010fc <USBD_SetupStage.lto_priv.103+0x320>
  80010fa:	2205      	movs	r2, #5
  80010fc:	f362 1306 	bfi	r3, r2, #4, #3
- 8001100:	4a4f      	ldr	r2, [pc, #316]	; (8001240 <USBD_SetupStage.lto_priv.101+0x464>)
+ 8001100:	4a4f      	ldr	r2, [pc, #316]	; (8001240 <USBD_SetupStage.lto_priv.103+0x464>)
  8001102:	6013      	str	r3, [r2, #0]
  8001104:	2301      	movs	r3, #1
  8001106:	f884 30e6 	strb.w	r3, [r4, #230]	; 0xe6
- 800110a:	e799      	b.n	8001040 <USBD_SetupStage.lto_priv.101+0x264>
+ 800110a:	e799      	b.n	8001040 <USBD_SetupStage.lto_priv.103+0x264>
  800110c:	f890 20e2 	ldrb.w	r2, [r0, #226]	; 0xe2
  8001110:	3a02      	subs	r2, #2
  8001112:	2a01      	cmp	r2, #1
- 8001114:	d80b      	bhi.n	800112e <USBD_SetupStage.lto_priv.101+0x352>
+ 8001114:	d80b      	bhi.n	800112e <USBD_SetupStage.lto_priv.103+0x352>
  8001116:	2b01      	cmp	r3, #1
- 8001118:	f040 8086 	bne.w	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 8001118:	f040 8086 	bne.w	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  800111c:	2300      	movs	r3, #0
- 800111e:	e7c9      	b.n	80010b4 <USBD_SetupStage.lto_priv.101+0x2d8>
+ 800111e:	e7c9      	b.n	80010b4 <USBD_SetupStage.lto_priv.103+0x2d8>
  8001120:	f890 30e2 	ldrb.w	r3, [r0, #226]	; 0xe2
  8001124:	2b03      	cmp	r3, #3
- 8001126:	d177      	bne.n	8001218 <USBD_SetupStage.lto_priv.101+0x43c>
+ 8001126:	d177      	bne.n	8001218 <USBD_SetupStage.lto_priv.103+0x43c>
  8001128:	b2ed      	uxtb	r5, r5
  800112a:	2d0a      	cmp	r5, #10
- 800112c:	d902      	bls.n	8001134 <USBD_SetupStage.lto_priv.101+0x358>
+ 800112c:	d902      	bls.n	8001134 <USBD_SetupStage.lto_priv.103+0x358>
  800112e:	a902      	add	r1, sp, #8
  8001130:	4620      	mov	r0, r4
- 8001132:	e072      	b.n	800121a <USBD_SetupStage.lto_priv.101+0x43e>
+ 8001132:	e072      	b.n	800121a <USBD_SetupStage.lto_priv.103+0x43e>
  8001134:	f8d0 34c4 	ldr.w	r3, [r0, #1220]	; 0x4c4
  8001138:	a902      	add	r1, sp, #8
  800113a:	689b      	ldr	r3, [r3, #8]
  800113c:	4798      	blx	r3
  800113e:	f8bd 300e 	ldrh.w	r3, [sp, #14]
  8001142:	2b00      	cmp	r3, #0
- 8001144:	d170      	bne.n	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
- 8001146:	e77b      	b.n	8001040 <USBD_SetupStage.lto_priv.101+0x264>
+ 8001144:	d170      	bne.n	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
+ 8001146:	e77b      	b.n	8001040 <USBD_SetupStage.lto_priv.103+0x264>
  8001148:	2e01      	cmp	r6, #1
  800114a:	b2e9      	uxtb	r1, r5
- 800114c:	d00f      	beq.n	800116e <USBD_SetupStage.lto_priv.101+0x392>
- 800114e:	d33c      	bcc.n	80011ca <USBD_SetupStage.lto_priv.101+0x3ee>
+ 800114c:	d00f      	beq.n	800116e <USBD_SetupStage.lto_priv.103+0x392>
+ 800114e:	d33c      	bcc.n	80011ca <USBD_SetupStage.lto_priv.103+0x3ee>
  8001150:	2e03      	cmp	r6, #3
- 8001152:	d169      	bne.n	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 8001152:	d169      	bne.n	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  8001154:	f890 20e2 	ldrb.w	r2, [r0, #226]	; 0xe2
  8001158:	2a02      	cmp	r2, #2
- 800115a:	d03d      	beq.n	80011d8 <USBD_SetupStage.lto_priv.101+0x3fc>
+ 800115a:	d03d      	beq.n	80011d8 <USBD_SetupStage.lto_priv.103+0x3fc>
  800115c:	2a03      	cmp	r2, #3
- 800115e:	d15b      	bne.n	8001218 <USBD_SetupStage.lto_priv.101+0x43c>
+ 800115e:	d15b      	bne.n	8001218 <USBD_SetupStage.lto_priv.103+0x43c>
  8001160:	2b00      	cmp	r3, #0
- 8001162:	d1a9      	bne.n	80010b8 <USBD_SetupStage.lto_priv.101+0x2dc>
+ 8001162:	d1a9      	bne.n	80010b8 <USBD_SetupStage.lto_priv.103+0x2dc>
  8001164:	064a      	lsls	r2, r1, #25
- 8001166:	d0a7      	beq.n	80010b8 <USBD_SetupStage.lto_priv.101+0x2dc>
+ 8001166:	d0a7      	beq.n	80010b8 <USBD_SetupStage.lto_priv.103+0x2dc>
  8001168:	f7ff fe10 	bl	8000d8c <DCD_EP_Stall>
- 800116c:	e7a4      	b.n	80010b8 <USBD_SetupStage.lto_priv.101+0x2dc>
+ 800116c:	e7a4      	b.n	80010b8 <USBD_SetupStage.lto_priv.103+0x2dc>
  800116e:	f890 20e2 	ldrb.w	r2, [r0, #226]	; 0xe2
  8001172:	2a02      	cmp	r2, #2
- 8001174:	d030      	beq.n	80011d8 <USBD_SetupStage.lto_priv.101+0x3fc>
+ 8001174:	d030      	beq.n	80011d8 <USBD_SetupStage.lto_priv.103+0x3fc>
  8001176:	2a03      	cmp	r2, #3
- 8001178:	d14e      	bne.n	8001218 <USBD_SetupStage.lto_priv.101+0x43c>
+ 8001178:	d14e      	bne.n	8001218 <USBD_SetupStage.lto_priv.103+0x43c>
  800117a:	2b00      	cmp	r3, #0
- 800117c:	d154      	bne.n	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 800117c:	d154      	bne.n	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  800117e:	f011 037f 	ands.w	r3, r1, #127	; 0x7f
- 8001182:	f43f af5d 	beq.w	8001040 <USBD_SetupStage.lto_priv.101+0x264>
+ 8001182:	f43f af5d 	beq.w	8001040 <USBD_SetupStage.lto_priv.103+0x264>
  8001186:	b26d      	sxtb	r5, r5
  8001188:	2d00      	cmp	r5, #0
  800118a:	f04f 0228 	mov.w	r2, #40	; 0x28
@@ -2283,40 +2283,40 @@ void IWDG_Enable(void)
  80011c0:	bf98      	it	ls
  80011c2:	f043 5380 	orrls.w	r3, r3, #268435456	; 0x10000000
  80011c6:	6013      	str	r3, [r2, #0]
- 80011c8:	e776      	b.n	80010b8 <USBD_SetupStage.lto_priv.101+0x2dc>
+ 80011c8:	e776      	b.n	80010b8 <USBD_SetupStage.lto_priv.103+0x2dc>
  80011ca:	f890 30e2 	ldrb.w	r3, [r0, #226]	; 0xe2
  80011ce:	2b02      	cmp	r3, #2
- 80011d0:	d002      	beq.n	80011d8 <USBD_SetupStage.lto_priv.101+0x3fc>
+ 80011d0:	d002      	beq.n	80011d8 <USBD_SetupStage.lto_priv.103+0x3fc>
  80011d2:	2b03      	cmp	r3, #3
- 80011d4:	d003      	beq.n	80011de <USBD_SetupStage.lto_priv.101+0x402>
- 80011d6:	e01f      	b.n	8001218 <USBD_SetupStage.lto_priv.101+0x43c>
+ 80011d4:	d003      	beq.n	80011de <USBD_SetupStage.lto_priv.103+0x402>
+ 80011d6:	e01f      	b.n	8001218 <USBD_SetupStage.lto_priv.103+0x43c>
  80011d8:	064b      	lsls	r3, r1, #25
- 80011da:	d025      	beq.n	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
- 80011dc:	e022      	b.n	8001224 <USBD_SetupStage.lto_priv.101+0x448>
+ 80011da:	d025      	beq.n	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
+ 80011dc:	e022      	b.n	8001224 <USBD_SetupStage.lto_priv.103+0x448>
  80011de:	f015 0f80 	tst.w	r5, #128	; 0x80
  80011e2:	f04f 0028 	mov.w	r0, #40	; 0x28
- 80011e6:	4a17      	ldr	r2, [pc, #92]	; (8001244 <USBD_SetupStage.lto_priv.101+0x468>)
- 80011e8:	d00d      	beq.n	8001206 <USBD_SetupStage.lto_priv.101+0x42a>
+ 80011e6:	4a17      	ldr	r2, [pc, #92]	; (8001244 <USBD_SetupStage.lto_priv.103+0x468>)
+ 80011e8:	d00d      	beq.n	8001206 <USBD_SetupStage.lto_priv.103+0x42a>
  80011ea:	f001 037f 	and.w	r3, r1, #127	; 0x7f
  80011ee:	fb00 4103 	mla	r1, r0, r3, r4
  80011f2:	f891 30ee 	ldrb.w	r3, [r1, #238]	; 0xee
- 80011f6:	b10b      	cbz	r3, 80011fc <USBD_SetupStage.lto_priv.101+0x420>
+ 80011f6:	b10b      	cbz	r3, 80011fc <USBD_SetupStage.lto_priv.103+0x420>
  80011f8:	2301      	movs	r3, #1
- 80011fa:	e000      	b.n	80011fe <USBD_SetupStage.lto_priv.101+0x422>
+ 80011fa:	e000      	b.n	80011fe <USBD_SetupStage.lto_priv.103+0x422>
  80011fc:	2300      	movs	r3, #0
  80011fe:	6013      	str	r3, [r2, #0]
- 8001200:	4910      	ldr	r1, [pc, #64]	; (8001244 <USBD_SetupStage.lto_priv.101+0x468>)
+ 8001200:	4910      	ldr	r1, [pc, #64]	; (8001244 <USBD_SetupStage.lto_priv.103+0x468>)
  8001202:	2202      	movs	r2, #2
- 8001204:	e004      	b.n	8001210 <USBD_SetupStage.lto_priv.101+0x434>
+ 8001204:	e004      	b.n	8001210 <USBD_SetupStage.lto_priv.103+0x434>
  8001206:	fb00 4101 	mla	r1, r0, r1, r4
  800120a:	f891 32ce 	ldrb.w	r3, [r1, #718]	; 0x2ce
- 800120e:	e7f2      	b.n	80011f6 <USBD_SetupStage.lto_priv.101+0x41a>
+ 800120e:	e7f2      	b.n	80011f6 <USBD_SetupStage.lto_priv.103+0x41a>
  8001210:	4620      	mov	r0, r4
  8001212:	f000 ff2d 	bl	8002070 <USBD_CtlSendData>
- 8001216:	e007      	b.n	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 8001216:	e007      	b.n	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  8001218:	a902      	add	r1, sp, #8
  800121a:	f000 ff36 	bl	800208a <USBD_CtlError>
- 800121e:	e003      	b.n	8001228 <USBD_SetupStage.lto_priv.101+0x44c>
+ 800121e:	e003      	b.n	8001228 <USBD_SetupStage.lto_priv.103+0x44c>
  8001220:	f001 0180 	and.w	r1, r1, #128	; 0x80
  8001224:	f7ff fdb2 	bl	8000d8c <DCD_EP_Stall>
  8001228:	2000      	movs	r0, #0
@@ -2330,11 +2330,11 @@ void IWDG_Enable(void)
  8001240:	200025b0 	.word	0x200025b0
  8001244:	200024c0 	.word	0x200024c0
 
-08001248 <USB_OTG_CoreReset.isra.1.lto_priv.120>:
+08001248 <USB_OTG_CoreReset.isra.1.lto_priv.123>:
  8001248:	b537      	push	{r0, r1, r2, r4, r5, lr}
  800124a:	4605      	mov	r5, r0
  800124c:	2300      	movs	r3, #0
- 800124e:	4c11      	ldr	r4, [pc, #68]	; (8001294 <USB_OTG_CoreReset.isra.1.lto_priv.120+0x4c>)
+ 800124e:	4c11      	ldr	r4, [pc, #68]	; (8001294 <USB_OTG_CoreReset.isra.1.lto_priv.123+0x4c>)
  8001250:	9301      	str	r3, [sp, #4]
  8001252:	2003      	movs	r0, #3
  8001254:	f002 f9c6 	bl	80035e4 <USB_OTG_BSP_uDelay>
@@ -2342,24 +2342,24 @@ void IWDG_Enable(void)
  800125a:	3c01      	subs	r4, #1
  800125c:	6913      	ldr	r3, [r2, #16]
  800125e:	9301      	str	r3, [sp, #4]
- 8001260:	d014      	beq.n	800128c <USB_OTG_CoreReset.isra.1.lto_priv.120+0x44>
+ 8001260:	d014      	beq.n	800128c <USB_OTG_CoreReset.isra.1.lto_priv.123+0x44>
  8001262:	9b01      	ldr	r3, [sp, #4]
  8001264:	2b00      	cmp	r3, #0
- 8001266:	daf4      	bge.n	8001252 <USB_OTG_CoreReset.isra.1.lto_priv.120+0xa>
+ 8001266:	daf4      	bge.n	8001252 <USB_OTG_CoreReset.isra.1.lto_priv.123+0xa>
  8001268:	9b01      	ldr	r3, [sp, #4]
  800126a:	f043 0301 	orr.w	r3, r3, #1
  800126e:	9301      	str	r3, [sp, #4]
  8001270:	9b01      	ldr	r3, [sp, #4]
  8001272:	6113      	str	r3, [r2, #16]
  8001274:	6829      	ldr	r1, [r5, #0]
- 8001276:	4b07      	ldr	r3, [pc, #28]	; (8001294 <USB_OTG_CoreReset.isra.1.lto_priv.120+0x4c>)
+ 8001276:	4b07      	ldr	r3, [pc, #28]	; (8001294 <USB_OTG_CoreReset.isra.1.lto_priv.123+0x4c>)
  8001278:	690a      	ldr	r2, [r1, #16]
  800127a:	3b01      	subs	r3, #1
  800127c:	9201      	str	r2, [sp, #4]
- 800127e:	d002      	beq.n	8001286 <USB_OTG_CoreReset.isra.1.lto_priv.120+0x3e>
+ 800127e:	d002      	beq.n	8001286 <USB_OTG_CoreReset.isra.1.lto_priv.123+0x3e>
  8001280:	9a01      	ldr	r2, [sp, #4]
  8001282:	07d2      	lsls	r2, r2, #31
- 8001284:	d4f8      	bmi.n	8001278 <USB_OTG_CoreReset.isra.1.lto_priv.120+0x30>
+ 8001284:	d4f8      	bmi.n	8001278 <USB_OTG_CoreReset.isra.1.lto_priv.123+0x30>
  8001286:	2003      	movs	r0, #3
  8001288:	f002 f9ac 	bl	80035e4 <USB_OTG_BSP_uDelay>
  800128c:	2000      	movs	r0, #0
@@ -2534,7 +2534,7 @@ void IWDG_Enable(void)
  8001424:	bd30      	pop	{r4, r5, pc}
 	...
 
-08001428 <NVIC_Init.part.0>:
+08001428 <NVIC_Init.part.0.lto_priv.93>:
   *         function should be called before.
   * @param  NVIC_InitStruct: pointer to a NVIC_InitTypeDef structure that contains
   *         the configuration information for the specified NVIC peripheral.
@@ -2548,7 +2548,7 @@ void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct)
   {
     /* Compute the Corresponding IRQ Priority --------------------------------*/
     tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700))>> 0x08;
- 800142a:	4b11      	ldr	r3, [pc, #68]	; (8001470 <NVIC_Init.part.0+0x48>)
+ 800142a:	4b11      	ldr	r3, [pc, #68]	; (8001470 <NVIC_Init.part.0.lto_priv.93+0x48>)
     tmppre = (0x4 - tmppriority);
     tmpsub = tmpsub >> tmppriority;
 
@@ -2582,7 +2582,7 @@ void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct)
 
     NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
  800144c:	7802      	ldrb	r2, [r0, #0]
- 800144e:	4909      	ldr	r1, [pc, #36]	; (8001474 <NVIC_Init.part.0+0x4c>)
+ 800144e:	4909      	ldr	r1, [pc, #36]	; (8001474 <NVIC_Init.part.0.lto_priv.93+0x4c>)
     tmpsub = tmpsub >> tmppriority;
 
     tmppriority = NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
@@ -2938,7 +2938,7 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
  80016dc:	f001 fc90 	bl	8003000 <RTC_WriteBackupRegister>
  80016e0:	4803      	ldr	r0, [pc, #12]	; (80016f0 <Finish_Update+0x34>)
  80016e2:	f7ff fb4a 	bl	8000d7a <DCD_DevDisconnect>
- 80016e6:	f000 fc05 	bl	8001ef4 <NVIC_SystemReset.lto_priv.94.lto_priv.97>
+ 80016e6:	f000 fc05 	bl	8001ef4 <NVIC_SystemReset.lto_priv.96.lto_priv.99>
  80016ea:	bf00      	nop
  80016ec:	200024c8 	.word	0x200024c8
  80016f0:	200036ec 	.word	0x200036ec
@@ -3201,9 +3201,9 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
  8001868:	20002470 	.word	0x20002470
  800186c:	40013c00 	.word	0x40013c00
 
-08001870 <Timer_Configure_Pwm.lto_priv.122>:
+08001870 <Timer_Configure_Pwm.lto_priv.125>:
  8001870:	b510      	push	{r4, lr}
- 8001872:	bb71      	cbnz	r1, 80018d2 <Timer_Configure_Pwm.lto_priv.122+0x62>
+ 8001872:	bb71      	cbnz	r1, 80018d2 <Timer_Configure_Pwm.lto_priv.125+0x62>
   assert_param(IS_TIM_OC_MODE(TIM_OCInitStruct->TIM_OCMode));
   assert_param(IS_TIM_OUTPUT_STATE(TIM_OCInitStruct->TIM_OutputState));
   assert_param(IS_TIM_OC_POLARITY(TIM_OCInitStruct->TIM_OCPolarity));
@@ -3217,7 +3217,7 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   tmpccer |= TIM_OCInitStruct->TIM_OutputState;
 
   if((TIMx == TIM1) || (TIMx == TIM8))
- 8001876:	4c63      	ldr	r4, [pc, #396]	; (8001a04 <Timer_Configure_Pwm.lto_priv.122+0x194>)
+ 8001876:	4c63      	ldr	r4, [pc, #396]	; (8001a04 <Timer_Configure_Pwm.lto_priv.125+0x194>)
   assert_param(IS_TIM_OC_MODE(TIM_OCInitStruct->TIM_OCMode));
   assert_param(IS_TIM_OUTPUT_STATE(TIM_OCInitStruct->TIM_OutputState));
   assert_param(IS_TIM_OC_POLARITY(TIM_OCInitStruct->TIM_OCPolarity));
@@ -3278,10 +3278,10 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   tmpccer |= TIM_OCInitStruct->TIM_OutputState;
 
   if((TIMx == TIM1) || (TIMx == TIM8))
- 800189e:	d008      	beq.n	80018b2 <Timer_Configure_Pwm.lto_priv.122+0x42>
+ 800189e:	d008      	beq.n	80018b2 <Timer_Configure_Pwm.lto_priv.125+0x42>
  80018a0:	f504 6480 	add.w	r4, r4, #1024	; 0x400
  80018a4:	42a0      	cmp	r0, r4
- 80018a6:	d004      	beq.n	80018b2 <Timer_Configure_Pwm.lto_priv.122+0x42>
+ 80018a6:	d004      	beq.n	80018b2 <Timer_Configure_Pwm.lto_priv.125+0x42>
   tmpccmrx &= (uint16_t)~TIM_CCMR1_CC1S;
   /* Select the Output Compare Mode */
   tmpccmrx |= TIM_OCInitStruct->TIM_OCMode;
@@ -3295,7 +3295,7 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   /* Set the Output State */
   tmpccer |= TIM_OCInitStruct->TIM_OutputState;
  80018ac:	f043 0303 	orr.w	r3, r3, #3
- 80018b0:	e006      	b.n	80018c0 <Timer_Configure_Pwm.lto_priv.122+0x50>
+ 80018b0:	e006      	b.n	80018c0 <Timer_Configure_Pwm.lto_priv.125+0x50>
  80018b2:	f023 030e 	bic.w	r3, r3, #14
 
     /* Set the Output N State */
@@ -3349,9 +3349,9 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   /* Reset the OC1PE Bit */
   tmpccmr1 &= (uint16_t)(~TIM_CCMR1_OC1PE);
  80018cc:	f023 0308 	bic.w	r3, r3, #8
- 80018d0:	e02f      	b.n	8001932 <Timer_Configure_Pwm.lto_priv.122+0xc2>
+ 80018d0:	e02f      	b.n	8001932 <Timer_Configure_Pwm.lto_priv.125+0xc2>
  80018d2:	2904      	cmp	r1, #4
- 80018d4:	d131      	bne.n	800193a <Timer_Configure_Pwm.lto_priv.122+0xca>
+ 80018d4:	d131      	bne.n	800193a <Timer_Configure_Pwm.lto_priv.125+0xca>
   assert_param(IS_TIM_OC_MODE(TIM_OCInitStruct->TIM_OCMode));
   assert_param(IS_TIM_OUTPUT_STATE(TIM_OCInitStruct->TIM_OutputState));
   assert_param(IS_TIM_OC_POLARITY(TIM_OCInitStruct->TIM_OCPolarity));
@@ -3365,7 +3365,7 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   tmpccer |= (uint16_t)(TIM_OCInitStruct->TIM_OutputState << 4);
 
   if((TIMx == TIM1) || (TIMx == TIM8))
- 80018d8:	4c4a      	ldr	r4, [pc, #296]	; (8001a04 <Timer_Configure_Pwm.lto_priv.122+0x194>)
+ 80018d8:	4c4a      	ldr	r4, [pc, #296]	; (8001a04 <Timer_Configure_Pwm.lto_priv.125+0x194>)
   assert_param(IS_TIM_OC_MODE(TIM_OCInitStruct->TIM_OCMode));
   assert_param(IS_TIM_OUTPUT_STATE(TIM_OCInitStruct->TIM_OutputState));
   assert_param(IS_TIM_OC_POLARITY(TIM_OCInitStruct->TIM_OCPolarity));
@@ -3426,10 +3426,10 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   tmpccer |= (uint16_t)(TIM_OCInitStruct->TIM_OutputState << 4);
 
   if((TIMx == TIM1) || (TIMx == TIM8))
- 8001900:	d008      	beq.n	8001914 <Timer_Configure_Pwm.lto_priv.122+0xa4>
+ 8001900:	d008      	beq.n	8001914 <Timer_Configure_Pwm.lto_priv.125+0xa4>
  8001902:	f504 6480 	add.w	r4, r4, #1024	; 0x400
  8001906:	42a0      	cmp	r0, r4
- 8001908:	d004      	beq.n	8001914 <Timer_Configure_Pwm.lto_priv.122+0xa4>
+ 8001908:	d004      	beq.n	8001914 <Timer_Configure_Pwm.lto_priv.125+0xa4>
 
   /* Select the Output Compare Mode */
   tmpccmrx |= (uint16_t)(TIM_OCInitStruct->TIM_OCMode << 8);
@@ -3443,7 +3443,7 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   /* Set the Output State */
   tmpccer |= (uint16_t)(TIM_OCInitStruct->TIM_OutputState << 4);
  800190e:	f043 0330 	orr.w	r3, r3, #48	; 0x30
- 8001912:	e006      	b.n	8001922 <Timer_Configure_Pwm.lto_priv.122+0xb2>
+ 8001912:	e006      	b.n	8001922 <Timer_Configure_Pwm.lto_priv.125+0xb2>
  8001914:	f023 03e0 	bic.w	r3, r3, #224	; 0xe0
 
     /* Set the Output N State */
@@ -3506,9 +3506,9 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   /* Write to TIMx CCMR1 register */
   TIMx->CCMR1 = tmpccmr1;
  8001936:	8303      	strh	r3, [r0, #24]
- 8001938:	e05d      	b.n	80019f6 <Timer_Configure_Pwm.lto_priv.122+0x186>
+ 8001938:	e05d      	b.n	80019f6 <Timer_Configure_Pwm.lto_priv.125+0x186>
  800193a:	2908      	cmp	r1, #8
- 800193c:	d12e      	bne.n	800199c <Timer_Configure_Pwm.lto_priv.122+0x12c>
+ 800193c:	d12e      	bne.n	800199c <Timer_Configure_Pwm.lto_priv.125+0x12c>
   assert_param(IS_TIM_OC_MODE(TIM_OCInitStruct->TIM_OCMode));
   assert_param(IS_TIM_OUTPUT_STATE(TIM_OCInitStruct->TIM_OutputState));
   assert_param(IS_TIM_OC_POLARITY(TIM_OCInitStruct->TIM_OCPolarity));
@@ -3522,7 +3522,7 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   tmpccer |= (uint16_t)(TIM_OCInitStruct->TIM_OutputState << 8);
 
   if((TIMx == TIM1) || (TIMx == TIM8))
- 8001940:	4c30      	ldr	r4, [pc, #192]	; (8001a04 <Timer_Configure_Pwm.lto_priv.122+0x194>)
+ 8001940:	4c30      	ldr	r4, [pc, #192]	; (8001a04 <Timer_Configure_Pwm.lto_priv.125+0x194>)
   assert_param(IS_TIM_OC_MODE(TIM_OCInitStruct->TIM_OCMode));
   assert_param(IS_TIM_OUTPUT_STATE(TIM_OCInitStruct->TIM_OutputState));
   assert_param(IS_TIM_OC_POLARITY(TIM_OCInitStruct->TIM_OCPolarity));
@@ -3583,10 +3583,10 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   tmpccer |= (uint16_t)(TIM_OCInitStruct->TIM_OutputState << 8);
 
   if((TIMx == TIM1) || (TIMx == TIM8))
- 8001968:	d008      	beq.n	800197c <Timer_Configure_Pwm.lto_priv.122+0x10c>
+ 8001968:	d008      	beq.n	800197c <Timer_Configure_Pwm.lto_priv.125+0x10c>
  800196a:	f504 6480 	add.w	r4, r4, #1024	; 0x400
  800196e:	42a0      	cmp	r0, r4
- 8001970:	d004      	beq.n	800197c <Timer_Configure_Pwm.lto_priv.122+0x10c>
+ 8001970:	d004      	beq.n	800197c <Timer_Configure_Pwm.lto_priv.125+0x10c>
   tmpccmrx &= (uint16_t)~TIM_CCMR2_CC3S;
   /* Select the Output Compare Mode */
   tmpccmrx |= TIM_OCInitStruct->TIM_OCMode;
@@ -3600,7 +3600,7 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   /* Set the Output State */
   tmpccer |= (uint16_t)(TIM_OCInitStruct->TIM_OutputState << 8);
  8001976:	f443 7340 	orr.w	r3, r3, #768	; 0x300
- 800197a:	e006      	b.n	800198a <Timer_Configure_Pwm.lto_priv.122+0x11a>
+ 800197a:	e006      	b.n	800198a <Timer_Configure_Pwm.lto_priv.125+0x11a>
  800197c:	f423 6360 	bic.w	r3, r3, #3584	; 0xe00
 
     /* Set the Output N State */
@@ -3654,9 +3654,9 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   /* Reset the OC3PE Bit */
   tmpccmr2 &= (uint16_t)(~TIM_CCMR2_OC3PE);
  8001996:	f023 0308 	bic.w	r3, r3, #8
- 800199a:	e029      	b.n	80019f0 <Timer_Configure_Pwm.lto_priv.122+0x180>
+ 800199a:	e029      	b.n	80019f0 <Timer_Configure_Pwm.lto_priv.125+0x180>
  800199c:	290c      	cmp	r1, #12
- 800199e:	d12a      	bne.n	80019f6 <Timer_Configure_Pwm.lto_priv.122+0x186>
+ 800199e:	d12a      	bne.n	80019f6 <Timer_Configure_Pwm.lto_priv.125+0x186>
   assert_param(IS_TIM_OC_MODE(TIM_OCInitStruct->TIM_OCMode));
   assert_param(IS_TIM_OUTPUT_STATE(TIM_OCInitStruct->TIM_OutputState));
   assert_param(IS_TIM_OC_POLARITY(TIM_OCInitStruct->TIM_OCPolarity));
@@ -3670,7 +3670,7 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   tmpccer |= (uint16_t)(TIM_OCInitStruct->TIM_OutputState << 12);
 
   if((TIMx == TIM1) || (TIMx == TIM8))
- 80019a2:	4c18      	ldr	r4, [pc, #96]	; (8001a04 <Timer_Configure_Pwm.lto_priv.122+0x194>)
+ 80019a2:	4c18      	ldr	r4, [pc, #96]	; (8001a04 <Timer_Configure_Pwm.lto_priv.125+0x194>)
   assert_param(IS_TIM_OC_MODE(TIM_OCInitStruct->TIM_OCMode));
   assert_param(IS_TIM_OUTPUT_STATE(TIM_OCInitStruct->TIM_OutputState));
   assert_param(IS_TIM_OC_POLARITY(TIM_OCInitStruct->TIM_OCPolarity));
@@ -3758,10 +3758,10 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
  80019cc:	f443 5340 	orr.w	r3, r3, #12288	; 0x3000
 
   if((TIMx == TIM1) || (TIMx == TIM8))
- 80019d0:	d003      	beq.n	80019da <Timer_Configure_Pwm.lto_priv.122+0x16a>
+ 80019d0:	d003      	beq.n	80019da <Timer_Configure_Pwm.lto_priv.125+0x16a>
  80019d2:	f504 6480 	add.w	r4, r4, #1024	; 0x400
  80019d6:	42a0      	cmp	r0, r4
- 80019d8:	d102      	bne.n	80019e0 <Timer_Configure_Pwm.lto_priv.122+0x170>
+ 80019d8:	d102      	bne.n	80019e0 <Timer_Configure_Pwm.lto_priv.125+0x170>
   {
     assert_param(IS_TIM_OCIDLE_STATE(TIM_OCInitStruct->TIM_OCIdleState));
     /* Reset the Output Compare IDLE State */
@@ -3821,68 +3821,68 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
  8001a02:	bf00      	nop
  8001a04:	40010000 	.word	0x40010000
 
-08001a08 <Timer_Configure.lto_priv.123>:
+08001a08 <Timer_Configure.lto_priv.126>:
  8001a08:	8803      	ldrh	r3, [r0, #0]
  8001a0a:	b510      	push	{r4, lr}
  8001a0c:	07db      	lsls	r3, r3, #31
- 8001a0e:	d469      	bmi.n	8001ae4 <Timer_Configure.lto_priv.123+0xdc>
- 8001a10:	4b3e      	ldr	r3, [pc, #248]	; (8001b0c <Timer_Configure.lto_priv.123+0x104>)
+ 8001a0e:	d469      	bmi.n	8001ae4 <Timer_Configure.lto_priv.126+0xdc>
+ 8001a10:	4b3e      	ldr	r3, [pc, #248]	; (8001b0c <Timer_Configure.lto_priv.126+0x104>)
  8001a12:	4298      	cmp	r0, r3
- 8001a14:	d106      	bne.n	8001a24 <Timer_Configure.lto_priv.123+0x1c>
+ 8001a14:	d106      	bne.n	8001a24 <Timer_Configure.lto_priv.126+0x1c>
   assert_param(IS_RCC_APB2_PERIPH(RCC_APB2Periph));
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
   if (NewState != DISABLE)
   {
     RCC->APB2ENR |= RCC_APB2Periph;
- 8001a16:	4a3e      	ldr	r2, [pc, #248]	; (8001b10 <Timer_Configure.lto_priv.123+0x108>)
+ 8001a16:	4a3e      	ldr	r2, [pc, #248]	; (8001b10 <Timer_Configure.lto_priv.126+0x108>)
  8001a18:	6c53      	ldr	r3, [r2, #68]	; 0x44
  8001a1a:	f043 0301 	orr.w	r3, r3, #1
  8001a1e:	6453      	str	r3, [r2, #68]	; 0x44
- 8001a20:	4b3c      	ldr	r3, [pc, #240]	; (8001b14 <Timer_Configure.lto_priv.123+0x10c>)
- 8001a22:	e020      	b.n	8001a66 <Timer_Configure.lto_priv.123+0x5e>
+ 8001a20:	4b3c      	ldr	r3, [pc, #240]	; (8001b14 <Timer_Configure.lto_priv.126+0x10c>)
+ 8001a22:	e020      	b.n	8001a66 <Timer_Configure.lto_priv.126+0x5e>
  8001a24:	f1b0 4f80 	cmp.w	r0, #1073741824	; 0x40000000
- 8001a28:	d104      	bne.n	8001a34 <Timer_Configure.lto_priv.123+0x2c>
+ 8001a28:	d104      	bne.n	8001a34 <Timer_Configure.lto_priv.126+0x2c>
   assert_param(IS_RCC_APB1_PERIPH(RCC_APB1Periph));
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
   if (NewState != DISABLE)
   {
     RCC->APB1ENR |= RCC_APB1Periph;
- 8001a2a:	4a39      	ldr	r2, [pc, #228]	; (8001b10 <Timer_Configure.lto_priv.123+0x108>)
+ 8001a2a:	4a39      	ldr	r2, [pc, #228]	; (8001b10 <Timer_Configure.lto_priv.126+0x108>)
  8001a2c:	6c13      	ldr	r3, [r2, #64]	; 0x40
  8001a2e:	f043 0301 	orr.w	r3, r3, #1
- 8001a32:	e016      	b.n	8001a62 <Timer_Configure.lto_priv.123+0x5a>
- 8001a34:	4b38      	ldr	r3, [pc, #224]	; (8001b18 <Timer_Configure.lto_priv.123+0x110>)
+ 8001a32:	e016      	b.n	8001a62 <Timer_Configure.lto_priv.126+0x5a>
+ 8001a34:	4b38      	ldr	r3, [pc, #224]	; (8001b18 <Timer_Configure.lto_priv.126+0x110>)
  8001a36:	4298      	cmp	r0, r3
- 8001a38:	d104      	bne.n	8001a44 <Timer_Configure.lto_priv.123+0x3c>
- 8001a3a:	4a35      	ldr	r2, [pc, #212]	; (8001b10 <Timer_Configure.lto_priv.123+0x108>)
+ 8001a38:	d104      	bne.n	8001a44 <Timer_Configure.lto_priv.126+0x3c>
+ 8001a3a:	4a35      	ldr	r2, [pc, #212]	; (8001b10 <Timer_Configure.lto_priv.126+0x108>)
  8001a3c:	6c13      	ldr	r3, [r2, #64]	; 0x40
  8001a3e:	f043 0302 	orr.w	r3, r3, #2
- 8001a42:	e00e      	b.n	8001a62 <Timer_Configure.lto_priv.123+0x5a>
- 8001a44:	4b35      	ldr	r3, [pc, #212]	; (8001b1c <Timer_Configure.lto_priv.123+0x114>)
+ 8001a42:	e00e      	b.n	8001a62 <Timer_Configure.lto_priv.126+0x5a>
+ 8001a44:	4b35      	ldr	r3, [pc, #212]	; (8001b1c <Timer_Configure.lto_priv.126+0x114>)
  8001a46:	4298      	cmp	r0, r3
- 8001a48:	d104      	bne.n	8001a54 <Timer_Configure.lto_priv.123+0x4c>
- 8001a4a:	4a31      	ldr	r2, [pc, #196]	; (8001b10 <Timer_Configure.lto_priv.123+0x108>)
+ 8001a48:	d104      	bne.n	8001a54 <Timer_Configure.lto_priv.126+0x4c>
+ 8001a4a:	4a31      	ldr	r2, [pc, #196]	; (8001b10 <Timer_Configure.lto_priv.126+0x108>)
  8001a4c:	6c13      	ldr	r3, [r2, #64]	; 0x40
  8001a4e:	f043 0304 	orr.w	r3, r3, #4
- 8001a52:	e006      	b.n	8001a62 <Timer_Configure.lto_priv.123+0x5a>
- 8001a54:	4b32      	ldr	r3, [pc, #200]	; (8001b20 <Timer_Configure.lto_priv.123+0x118>)
+ 8001a52:	e006      	b.n	8001a62 <Timer_Configure.lto_priv.126+0x5a>
+ 8001a54:	4b32      	ldr	r3, [pc, #200]	; (8001b20 <Timer_Configure.lto_priv.126+0x118>)
  8001a56:	4298      	cmp	r0, r3
- 8001a58:	d104      	bne.n	8001a64 <Timer_Configure.lto_priv.123+0x5c>
- 8001a5a:	4a2d      	ldr	r2, [pc, #180]	; (8001b10 <Timer_Configure.lto_priv.123+0x108>)
+ 8001a58:	d104      	bne.n	8001a64 <Timer_Configure.lto_priv.126+0x5c>
+ 8001a5a:	4a2d      	ldr	r2, [pc, #180]	; (8001b10 <Timer_Configure.lto_priv.126+0x108>)
  8001a5c:	6c13      	ldr	r3, [r2, #64]	; 0x40
  8001a5e:	f043 0308 	orr.w	r3, r3, #8
  8001a62:	6413      	str	r3, [r2, #64]	; 0x40
- 8001a64:	4b2f      	ldr	r3, [pc, #188]	; (8001b24 <Timer_Configure.lto_priv.123+0x11c>)
- 8001a66:	4a30      	ldr	r2, [pc, #192]	; (8001b28 <Timer_Configure.lto_priv.123+0x120>)
+ 8001a64:	4b2f      	ldr	r3, [pc, #188]	; (8001b24 <Timer_Configure.lto_priv.126+0x11c>)
+ 8001a66:	4a30      	ldr	r2, [pc, #192]	; (8001b28 <Timer_Configure.lto_priv.126+0x120>)
   assert_param(IS_TIM_COUNTER_MODE(TIM_TimeBaseInitStruct->TIM_CounterMode));
   assert_param(IS_TIM_CKD_DIV(TIM_TimeBaseInitStruct->TIM_ClockDivision));
 
   tmpcr1 = TIMx->CR1;
 
   if((TIMx == TIM1) || (TIMx == TIM8)||
- 8001a68:	4c28      	ldr	r4, [pc, #160]	; (8001b0c <Timer_Configure.lto_priv.123+0x104>)
+ 8001a68:	4c28      	ldr	r4, [pc, #160]	; (8001b0c <Timer_Configure.lto_priv.126+0x104>)
  8001a6a:	fbb3 f2f2 	udiv	r2, r3, r2
   /* Check the parameters */
   assert_param(IS_TIM_ALL_PERIPH(TIMx));
@@ -3905,23 +3905,23 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
  8001a76:	b29b      	uxth	r3, r3
 
   if((TIMx == TIM1) || (TIMx == TIM8)||
- 8001a78:	d012      	beq.n	8001aa0 <Timer_Configure.lto_priv.123+0x98>
+ 8001a78:	d012      	beq.n	8001aa0 <Timer_Configure.lto_priv.126+0x98>
  8001a7a:	f504 6480 	add.w	r4, r4, #1024	; 0x400
  8001a7e:	42a0      	cmp	r0, r4
- 8001a80:	d00e      	beq.n	8001aa0 <Timer_Configure.lto_priv.123+0x98>
+ 8001a80:	d00e      	beq.n	8001aa0 <Timer_Configure.lto_priv.126+0x98>
  8001a82:	f1b0 4f80 	cmp.w	r0, #1073741824	; 0x40000000
- 8001a86:	d00b      	beq.n	8001aa0 <Timer_Configure.lto_priv.123+0x98>
+ 8001a86:	d00b      	beq.n	8001aa0 <Timer_Configure.lto_priv.126+0x98>
      (TIMx == TIM2) || (TIMx == TIM3)||
  8001a88:	f5a4 3480 	sub.w	r4, r4, #65536	; 0x10000
  8001a8c:	42a0      	cmp	r0, r4
- 8001a8e:	d007      	beq.n	8001aa0 <Timer_Configure.lto_priv.123+0x98>
+ 8001a8e:	d007      	beq.n	8001aa0 <Timer_Configure.lto_priv.126+0x98>
  8001a90:	f504 6480 	add.w	r4, r4, #1024	; 0x400
  8001a94:	42a0      	cmp	r0, r4
- 8001a96:	d003      	beq.n	8001aa0 <Timer_Configure.lto_priv.123+0x98>
+ 8001a96:	d003      	beq.n	8001aa0 <Timer_Configure.lto_priv.126+0x98>
      (TIMx == TIM4) || (TIMx == TIM5))
  8001a98:	f504 6480 	add.w	r4, r4, #1024	; 0x400
  8001a9c:	42a0      	cmp	r0, r4
- 8001a9e:	d102      	bne.n	8001aa6 <Timer_Configure.lto_priv.123+0x9e>
+ 8001a9e:	d102      	bne.n	8001aa6 <Timer_Configure.lto_priv.126+0x9e>
   {
     /* Select the Counter Mode */
     tmpcr1 &= (uint16_t)(~(TIM_CR1_DIR | TIM_CR1_CMS));
@@ -3931,9 +3931,9 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   }
 
   if((TIMx != TIM6) && (TIMx != TIM7))
- 8001aa6:	4c21      	ldr	r4, [pc, #132]	; (8001b2c <Timer_Configure.lto_priv.123+0x124>)
+ 8001aa6:	4c21      	ldr	r4, [pc, #132]	; (8001b2c <Timer_Configure.lto_priv.126+0x124>)
  8001aa8:	42a0      	cmp	r0, r4
- 8001aaa:	d006      	beq.n	8001aba <Timer_Configure.lto_priv.123+0xb2>
+ 8001aaa:	d006      	beq.n	8001aba <Timer_Configure.lto_priv.126+0xb2>
  8001aac:	f504 6480 	add.w	r4, r4, #1024	; 0x400
  8001ab0:	42a0      	cmp	r0, r4
   {
@@ -3957,7 +3957,7 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
   TIMx->PSC = TIM_TimeBaseInitStruct->TIM_Prescaler;
 
   if ((TIMx == TIM1) || (TIMx == TIM8))
- 8001ac2:	4b12      	ldr	r3, [pc, #72]	; (8001b0c <Timer_Configure.lto_priv.123+0x104>)
+ 8001ac2:	4b12      	ldr	r3, [pc, #72]	; (8001b0c <Timer_Configure.lto_priv.126+0x104>)
 
   /* Set the Autoreload value */
   TIMx->ARR = TIM_TimeBaseInitStruct->TIM_Period ;
@@ -3968,10 +3968,10 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
 
   if ((TIMx == TIM1) || (TIMx == TIM8))
  8001ac6:	4298      	cmp	r0, r3
- 8001ac8:	d003      	beq.n	8001ad2 <Timer_Configure.lto_priv.123+0xca>
+ 8001ac8:	d003      	beq.n	8001ad2 <Timer_Configure.lto_priv.126+0xca>
  8001aca:	f503 6380 	add.w	r3, r3, #1024	; 0x400
  8001ace:	4298      	cmp	r0, r3
- 8001ad0:	d101      	bne.n	8001ad6 <Timer_Configure.lto_priv.123+0xce>
+ 8001ad0:	d101      	bne.n	8001ad6 <Timer_Configure.lto_priv.126+0xce>
   {
     /* Set the Repetition Counter value */
     TIMx->RCR = TIM_TimeBaseInitStruct->TIM_RepetitionCounter;
@@ -3994,7 +3994,7 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
  8001adc:	b29b      	uxth	r3, r3
  8001ade:	f043 0380 	orr.w	r3, r3, #128	; 0x80
  8001ae2:	8003      	strh	r3, [r0, #0]
- 8001ae4:	b181      	cbz	r1, 8001b08 <Timer_Configure.lto_priv.123+0x100>
+ 8001ae4:	b181      	cbz	r1, 8001b08 <Timer_Configure.lto_priv.126+0x100>
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
   if (NewState != DISABLE)
@@ -4005,9 +4005,9 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
  8001ae8:	b29b      	uxth	r3, r3
  8001aea:	f043 0301 	orr.w	r3, r3, #1
  8001aee:	8003      	strh	r3, [r0, #0]
- 8001af0:	4b06      	ldr	r3, [pc, #24]	; (8001b0c <Timer_Configure.lto_priv.123+0x104>)
+ 8001af0:	4b06      	ldr	r3, [pc, #24]	; (8001b0c <Timer_Configure.lto_priv.126+0x104>)
  8001af2:	4298      	cmp	r0, r3
- 8001af4:	d108      	bne.n	8001b08 <Timer_Configure.lto_priv.123+0x100>
+ 8001af4:	d108      	bne.n	8001b08 <Timer_Configure.lto_priv.126+0x100>
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
   if (NewState != DISABLE)
@@ -4111,7 +4111,7 @@ uint16_t FLASH_OB_GetWRP(void)
  8001bf0:	d104      	bne.n	8001bfc <FLASH_CopyMemory+0xcc>
  8001bf2:	4658      	mov	r0, fp
  8001bf4:	9207      	str	r2, [sp, #28]
- 8001bf6:	f001 fd21 	bl	800363c <FLASH_WriteProtection_Disable.part.4>
+ 8001bf6:	f001 fd21 	bl	800363c <FLASH_WriteProtection_Disable.part.4.lto_priv.95>
  8001bfa:	9a07      	ldr	r2, [sp, #28]
  8001bfc:	ea4f 034b 	mov.w	r3, fp, lsl #1
  8001c00:	fa1f fb83 	uxth.w	fp, r3
@@ -4238,38 +4238,38 @@ uint16_t FLASH_OB_GetWRP(void)
  8001ce8:	4770      	bx	lr
 	...
 
-08001cec <USBD_DFU_GetOtherCfgDesc.lto_priv.114>:
+08001cec <USBD_DFU_GetOtherCfgDesc.lto_priv.116>:
  8001cec:	2324      	movs	r3, #36	; 0x24
  8001cee:	800b      	strh	r3, [r1, #0]
- 8001cf0:	4800      	ldr	r0, [pc, #0]	; (8001cf4 <USBD_DFU_GetOtherCfgDesc.lto_priv.114+0x8>)
+ 8001cf0:	4800      	ldr	r0, [pc, #0]	; (8001cf4 <USBD_DFU_GetOtherCfgDesc.lto_priv.116+0x8>)
  8001cf2:	4770      	bx	lr
  8001cf4:	20002380 	.word	0x20002380
 
-08001cf8 <USBD_DFU_GetCfgDesc.lto_priv.113>:
+08001cf8 <USBD_DFU_GetCfgDesc.lto_priv.115>:
  8001cf8:	2324      	movs	r3, #36	; 0x24
  8001cfa:	800b      	strh	r3, [r1, #0]
- 8001cfc:	4800      	ldr	r0, [pc, #0]	; (8001d00 <USBD_DFU_GetCfgDesc.lto_priv.113+0x8>)
+ 8001cfc:	4800      	ldr	r0, [pc, #0]	; (8001d00 <USBD_DFU_GetCfgDesc.lto_priv.115+0x8>)
  8001cfe:	4770      	bx	lr
  8001d00:	20002356 	.word	0x20002356
 
-08001d04 <EP0_RxReady.lto_priv.112>:
+08001d04 <EP0_RxReady.lto_priv.114>:
  8001d04:	2000      	movs	r0, #0
  8001d06:	4770      	bx	lr
 
-08001d08 <usbd_dfu_Init.lto_priv.108>:
+08001d08 <usbd_dfu_Init.lto_priv.110>:
  8001d08:	b508      	push	{r3, lr}
- 8001d0a:	4b07      	ldr	r3, [pc, #28]	; (8001d28 <usbd_dfu_Init.lto_priv.108+0x20>)
+ 8001d0a:	4b07      	ldr	r3, [pc, #28]	; (8001d28 <usbd_dfu_Init.lto_priv.110+0x20>)
  8001d0c:	685b      	ldr	r3, [r3, #4]
- 8001d0e:	b103      	cbz	r3, 8001d12 <usbd_dfu_Init.lto_priv.108+0xa>
+ 8001d0e:	b103      	cbz	r3, 8001d12 <usbd_dfu_Init.lto_priv.110+0xa>
  8001d10:	4798      	blx	r3
- 8001d12:	4b06      	ldr	r3, [pc, #24]	; (8001d2c <usbd_dfu_Init.lto_priv.108+0x24>)
+ 8001d12:	4b06      	ldr	r3, [pc, #24]	; (8001d2c <usbd_dfu_Init.lto_priv.110+0x24>)
  8001d14:	685b      	ldr	r3, [r3, #4]
- 8001d16:	b103      	cbz	r3, 8001d1a <usbd_dfu_Init.lto_priv.108+0x12>
+ 8001d16:	b103      	cbz	r3, 8001d1a <usbd_dfu_Init.lto_priv.110+0x12>
  8001d18:	4798      	blx	r3
- 8001d1a:	4a05      	ldr	r2, [pc, #20]	; (8001d30 <usbd_dfu_Init.lto_priv.108+0x28>)
+ 8001d1a:	4a05      	ldr	r2, [pc, #20]	; (8001d30 <usbd_dfu_Init.lto_priv.110+0x28>)
  8001d1c:	2302      	movs	r3, #2
  8001d1e:	7013      	strb	r3, [r2, #0]
- 8001d20:	4a04      	ldr	r2, [pc, #16]	; (8001d34 <usbd_dfu_Init.lto_priv.108+0x2c>)
+ 8001d20:	4a04      	ldr	r2, [pc, #16]	; (8001d34 <usbd_dfu_Init.lto_priv.110+0x2c>)
  8001d22:	2000      	movs	r0, #0
  8001d24:	7113      	strb	r3, [r2, #4]
  8001d26:	bd08      	pop	{r3, pc}
@@ -4278,7 +4278,7 @@ uint16_t FLASH_OB_GetWRP(void)
  8001d30:	200035c0 	.word	0x200035c0
  8001d34:	20003bc4 	.word	0x20003bc4
 
-08001d38 <USBD_IsoOUTIncomplete.lto_priv.107>:
+08001d38 <USBD_IsoOUTIncomplete.lto_priv.109>:
  8001d38:	b508      	push	{r3, lr}
  8001d3a:	f8d0 34c4 	ldr.w	r3, [r0, #1220]	; 0x4c4
  8001d3e:	6a5b      	ldr	r3, [r3, #36]	; 0x24
@@ -4286,7 +4286,7 @@ uint16_t FLASH_OB_GetWRP(void)
  8001d42:	2000      	movs	r0, #0
  8001d44:	bd08      	pop	{r3, pc}
 
-08001d46 <USBD_IsoINIncomplete.lto_priv.106>:
+08001d46 <USBD_IsoINIncomplete.lto_priv.108>:
  8001d46:	b508      	push	{r3, lr}
  8001d48:	f8d0 34c4 	ldr.w	r3, [r0, #1220]	; 0x4c4
  8001d4c:	6a1b      	ldr	r3, [r3, #32]
@@ -4294,33 +4294,33 @@ uint16_t FLASH_OB_GetWRP(void)
  8001d50:	2000      	movs	r0, #0
  8001d52:	bd08      	pop	{r3, pc}
 
-08001d54 <USBD_SOF.lto_priv.102>:
+08001d54 <USBD_SOF.lto_priv.104>:
  8001d54:	b508      	push	{r3, lr}
  8001d56:	f8d0 34c4 	ldr.w	r3, [r0, #1220]	; 0x4c4
  8001d5a:	69db      	ldr	r3, [r3, #28]
- 8001d5c:	b103      	cbz	r3, 8001d60 <USBD_SOF.lto_priv.102+0xc>
+ 8001d5c:	b103      	cbz	r3, 8001d60 <USBD_SOF.lto_priv.104+0xc>
  8001d5e:	4798      	blx	r3
  8001d60:	2000      	movs	r0, #0
  8001d62:	bd08      	pop	{r3, pc}
 
-08001d64 <USBD_Suspend.lto_priv.104>:
+08001d64 <USBD_Suspend.lto_priv.106>:
  8001d64:	b508      	push	{r3, lr}
  8001d66:	f890 30e2 	ldrb.w	r3, [r0, #226]	; 0xe2
  8001d6a:	f880 30e3 	strb.w	r3, [r0, #227]	; 0xe3
  8001d6e:	2304      	movs	r3, #4
  8001d70:	f880 30e2 	strb.w	r3, [r0, #226]	; 0xe2
  8001d74:	f8d0 34c8 	ldr.w	r3, [r0, #1224]	; 0x4c8
- 8001d78:	b10b      	cbz	r3, 8001d7e <USBD_Suspend.lto_priv.104+0x1a>
+ 8001d78:	b10b      	cbz	r3, 8001d7e <USBD_Suspend.lto_priv.106+0x1a>
  8001d7a:	68db      	ldr	r3, [r3, #12]
  8001d7c:	4798      	blx	r3
  8001d7e:	2000      	movs	r0, #0
  8001d80:	bd08      	pop	{r3, pc}
 
-08001d82 <USBD_Resume.lto_priv.105>:
+08001d82 <USBD_Resume.lto_priv.107>:
  8001d82:	b510      	push	{r4, lr}
  8001d84:	f8d0 34c8 	ldr.w	r3, [r0, #1224]	; 0x4c8
  8001d88:	4604      	mov	r4, r0
- 8001d8a:	b10b      	cbz	r3, 8001d90 <USBD_Resume.lto_priv.105+0xe>
+ 8001d8a:	b10b      	cbz	r3, 8001d90 <USBD_Resume.lto_priv.107+0xe>
  8001d8c:	691b      	ldr	r3, [r3, #16]
  8001d8e:	4798      	blx	r3
  8001d90:	2303      	movs	r3, #3
@@ -4344,34 +4344,34 @@ uint16_t FLASH_OB_GetWRP(void)
  8001db2:	bd08      	pop	{r3, pc}
  8001db4:	200025c0 	.word	0x200025c0
 
-08001db8 <USBD_DFU_GetUsrStringDesc.lto_priv.115>:
+08001db8 <USBD_DFU_GetUsrStringDesc.lto_priv.117>:
  8001db8:	290f      	cmp	r1, #15
  8001dba:	b508      	push	{r3, lr}
- 8001dbc:	d808      	bhi.n	8001dd0 <USBD_DFU_GetUsrStringDesc.lto_priv.115+0x18>
+ 8001dbc:	d808      	bhi.n	8001dd0 <USBD_DFU_GetUsrStringDesc.lto_priv.117+0x18>
  8001dbe:	1f8b      	subs	r3, r1, #6
  8001dc0:	4611      	mov	r1, r2
- 8001dc2:	4a04      	ldr	r2, [pc, #16]	; (8001dd4 <USBD_DFU_GetUsrStringDesc.lto_priv.115+0x1c>)
+ 8001dc2:	4a04      	ldr	r2, [pc, #16]	; (8001dd4 <USBD_DFU_GetUsrStringDesc.lto_priv.117+0x1c>)
  8001dc4:	f852 0023 	ldr.w	r0, [r2, r3, lsl #2]
  8001dc8:	f001 fb4e 	bl	8003468 <USBD_GetString.constprop.14>
- 8001dcc:	4802      	ldr	r0, [pc, #8]	; (8001dd8 <USBD_DFU_GetUsrStringDesc.lto_priv.115+0x20>)
+ 8001dcc:	4802      	ldr	r0, [pc, #8]	; (8001dd8 <USBD_DFU_GetUsrStringDesc.lto_priv.117+0x20>)
  8001dce:	bd08      	pop	{r3, pc}
  8001dd0:	2000      	movs	r0, #0
  8001dd2:	bd08      	pop	{r3, pc}
  8001dd4:	080037d8 	.word	0x080037d8
  8001dd8:	200035ec 	.word	0x200035ec
 
-08001ddc <USBD_DataInStage.lto_priv.100>:
+08001ddc <USBD_DataInStage.lto_priv.102>:
  8001ddc:	b538      	push	{r3, r4, r5, lr}
  8001dde:	4604      	mov	r4, r0
  8001de0:	2900      	cmp	r1, #0
- 8001de2:	d14f      	bne.n	8001e84 <USBD_DataInStage.lto_priv.100+0xa8>
+ 8001de2:	d14f      	bne.n	8001e84 <USBD_DataInStage.lto_priv.102+0xa8>
  8001de4:	f890 30e1 	ldrb.w	r3, [r0, #225]	; 0xe1
  8001de8:	2b02      	cmp	r3, #2
- 8001dea:	d13f      	bne.n	8001e6c <USBD_DataInStage.lto_priv.100+0x90>
+ 8001dea:	d13f      	bne.n	8001e6c <USBD_DataInStage.lto_priv.102+0x90>
  8001dec:	f8d0 2108 	ldr.w	r2, [r0, #264]	; 0x108
  8001df0:	f8d0 30f4 	ldr.w	r3, [r0, #244]	; 0xf4
  8001df4:	429a      	cmp	r2, r3
- 8001df6:	d911      	bls.n	8001e1c <USBD_DataInStage.lto_priv.100+0x40>
+ 8001df6:	d911      	bls.n	8001e1c <USBD_DataInStage.lto_priv.102+0x40>
  8001df8:	78c1      	ldrb	r1, [r0, #3]
  8001dfa:	1ad2      	subs	r2, r2, r3
  8001dfc:	2901      	cmp	r1, #1
@@ -4384,26 +4384,26 @@ uint16_t FLASH_OB_GetWRP(void)
  8001e10:	b292      	uxth	r2, r2
  8001e12:	f8d0 10f8 	ldr.w	r1, [r0, #248]	; 0xf8
  8001e16:	f001 fb5f 	bl	80034d8 <DCD_EP_Tx.constprop.6>
- 8001e1a:	e027      	b.n	8001e6c <USBD_DataInStage.lto_priv.100+0x90>
+ 8001e1a:	e027      	b.n	8001e6c <USBD_DataInStage.lto_priv.102+0x90>
  8001e1c:	f8d0 210c 	ldr.w	r2, [r0, #268]	; 0x10c
  8001e20:	fbb2 f5f3 	udiv	r5, r2, r3
  8001e24:	fb03 2515 	mls	r5, r3, r5, r2
- 8001e28:	b95d      	cbnz	r5, 8001e42 <USBD_DataInStage.lto_priv.100+0x66>
+ 8001e28:	b95d      	cbnz	r5, 8001e42 <USBD_DataInStage.lto_priv.102+0x66>
  8001e2a:	4293      	cmp	r3, r2
- 8001e2c:	d809      	bhi.n	8001e42 <USBD_DataInStage.lto_priv.100+0x66>
+ 8001e2c:	d809      	bhi.n	8001e42 <USBD_DataInStage.lto_priv.102+0x66>
  8001e2e:	f8d0 3110 	ldr.w	r3, [r0, #272]	; 0x110
  8001e32:	429a      	cmp	r2, r3
- 8001e34:	d205      	bcs.n	8001e42 <USBD_DataInStage.lto_priv.100+0x66>
+ 8001e34:	d205      	bcs.n	8001e42 <USBD_DataInStage.lto_priv.102+0x66>
  8001e36:	462a      	mov	r2, r5
  8001e38:	f001 fb4e 	bl	80034d8 <DCD_EP_Tx.constprop.6>
  8001e3c:	f8c4 5110 	str.w	r5, [r4, #272]	; 0x110
- 8001e40:	e014      	b.n	8001e6c <USBD_DataInStage.lto_priv.100+0x90>
+ 8001e40:	e014      	b.n	8001e6c <USBD_DataInStage.lto_priv.102+0x90>
  8001e42:	f8d4 34c4 	ldr.w	r3, [r4, #1220]	; 0x4c4
  8001e46:	68db      	ldr	r3, [r3, #12]
- 8001e48:	b12b      	cbz	r3, 8001e56 <USBD_DataInStage.lto_priv.100+0x7a>
+ 8001e48:	b12b      	cbz	r3, 8001e56 <USBD_DataInStage.lto_priv.102+0x7a>
  8001e4a:	f894 20e2 	ldrb.w	r2, [r4, #226]	; 0xe2
  8001e4e:	2a03      	cmp	r2, #3
- 8001e50:	d101      	bne.n	8001e56 <USBD_DataInStage.lto_priv.100+0x7a>
+ 8001e50:	d101      	bne.n	8001e56 <USBD_DataInStage.lto_priv.102+0x7a>
  8001e52:	4620      	mov	r0, r4
  8001e54:	4798      	blx	r3
  8001e56:	2305      	movs	r3, #5
@@ -4416,27 +4416,27 @@ uint16_t FLASH_OB_GetWRP(void)
  8001e68:	f7ff fa16 	bl	8001298 <USB_OTG_EP0_OutStart>
  8001e6c:	f894 30e6 	ldrb.w	r3, [r4, #230]	; 0xe6
  8001e70:	2b01      	cmp	r3, #1
- 8001e72:	d110      	bne.n	8001e96 <USBD_DataInStage.lto_priv.100+0xba>
- 8001e74:	4a09      	ldr	r2, [pc, #36]	; (8001e9c <USBD_DataInStage.lto_priv.100+0xc0>)
+ 8001e72:	d110      	bne.n	8001e96 <USBD_DataInStage.lto_priv.102+0xba>
+ 8001e74:	4a09      	ldr	r2, [pc, #36]	; (8001e9c <USBD_DataInStage.lto_priv.102+0xc0>)
  8001e76:	6923      	ldr	r3, [r4, #16]
  8001e78:	6812      	ldr	r2, [r2, #0]
  8001e7a:	605a      	str	r2, [r3, #4]
  8001e7c:	2300      	movs	r3, #0
  8001e7e:	f884 30e6 	strb.w	r3, [r4, #230]	; 0xe6
- 8001e82:	e008      	b.n	8001e96 <USBD_DataInStage.lto_priv.100+0xba>
+ 8001e82:	e008      	b.n	8001e96 <USBD_DataInStage.lto_priv.102+0xba>
  8001e84:	f8d0 34c4 	ldr.w	r3, [r0, #1220]	; 0x4c4
  8001e88:	695b      	ldr	r3, [r3, #20]
- 8001e8a:	b123      	cbz	r3, 8001e96 <USBD_DataInStage.lto_priv.100+0xba>
+ 8001e8a:	b123      	cbz	r3, 8001e96 <USBD_DataInStage.lto_priv.102+0xba>
  8001e8c:	f890 20e2 	ldrb.w	r2, [r0, #226]	; 0xe2
  8001e90:	2a03      	cmp	r2, #3
- 8001e92:	d100      	bne.n	8001e96 <USBD_DataInStage.lto_priv.100+0xba>
+ 8001e92:	d100      	bne.n	8001e96 <USBD_DataInStage.lto_priv.102+0xba>
  8001e94:	4798      	blx	r3
  8001e96:	2000      	movs	r0, #0
  8001e98:	bd38      	pop	{r3, r4, r5, pc}
  8001e9a:	bf00      	nop
  8001e9c:	200025b0 	.word	0x200025b0
 
-08001ea0 <USBD_Reset.lto_priv.103>:
+08001ea0 <USBD_Reset.lto_priv.105>:
  8001ea0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
  8001ea2:	4604      	mov	r4, r0
  8001ea4:	2500      	movs	r5, #0
@@ -4458,14 +4458,14 @@ uint16_t FLASH_OB_GetWRP(void)
  8001edc:	f7ff fa6d 	bl	80013ba <USB_OTG_EPActivate>
  8001ee0:	f8d4 34c8 	ldr.w	r3, [r4, #1224]	; 0x4c8
  8001ee4:	f884 60e2 	strb.w	r6, [r4, #226]	; 0xe2
- 8001ee8:	b113      	cbz	r3, 8001ef0 <USBD_Reset.lto_priv.103+0x50>
+ 8001ee8:	b113      	cbz	r3, 8001ef0 <USBD_Reset.lto_priv.105+0x50>
  8001eea:	685b      	ldr	r3, [r3, #4]
  8001eec:	78a0      	ldrb	r0, [r4, #2]
  8001eee:	4798      	blx	r3
  8001ef0:	2000      	movs	r0, #0
  8001ef2:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
 
-08001ef4 <NVIC_SystemReset.lto_priv.94.lto_priv.97>:
+08001ef4 <NVIC_SystemReset.lto_priv.96.lto_priv.99>:
     This function acts as a special kind of Data Memory Barrier.
     It completes when all explicit memory accesses before this instruction complete.
  */
@@ -4479,8 +4479,8 @@ __STATIC_INLINE void NVIC_SystemReset(void)
                                                                   buffered write are completed before reset */
   SCB->AIRCR  = ((0x5FA << SCB_AIRCR_VECTKEY_Pos)      |
                  (SCB->AIRCR & SCB_AIRCR_PRIGROUP_Msk) |
- 8001ef8:	4904      	ldr	r1, [pc, #16]	; (8001f0c <NVIC_SystemReset.lto_priv.94.lto_priv.97+0x18>)
- 8001efa:	4b05      	ldr	r3, [pc, #20]	; (8001f10 <NVIC_SystemReset.lto_priv.94.lto_priv.97+0x1c>)
+ 8001ef8:	4904      	ldr	r1, [pc, #16]	; (8001f0c <NVIC_SystemReset.lto_priv.96.lto_priv.99+0x18>)
+ 8001efa:	4b05      	ldr	r3, [pc, #20]	; (8001f10 <NVIC_SystemReset.lto_priv.96.lto_priv.99+0x1c>)
  8001efc:	68ca      	ldr	r2, [r1, #12]
  8001efe:	f402 62e0 	and.w	r2, r2, #1792	; 0x700
  8001f02:	4313      	orrs	r3, r2
@@ -4492,7 +4492,7 @@ __STATIC_INLINE void NVIC_SystemReset(void)
   SCB->AIRCR  = ((0x5FA << SCB_AIRCR_VECTKEY_Pos)      |
  8001f04:	60cb      	str	r3, [r1, #12]
  8001f06:	f3bf 8f4f 	dsb	sy
- 8001f0a:	e7fe      	b.n	8001f0a <NVIC_SystemReset.lto_priv.94.lto_priv.97+0x16>
+ 8001f0a:	e7fe      	b.n	8001f0a <NVIC_SystemReset.lto_priv.96.lto_priv.99+0x16>
  8001f0c:	e000ed00 	.word	0xe000ed00
  8001f10:	05fa0004 	.word	0x05fa0004
 
@@ -4583,12 +4583,12 @@ __STATIC_INLINE void NVIC_SystemReset(void)
  8001fe0:	05403c1a 	.word	0x05403c1a
  8001fe4:	40023c00 	.word	0x40023c00
 
-08001fe8 <MAL_CheckAdd.lto_priv.93>:
+08001fe8 <MAL_CheckAdd.lto_priv.94>:
  8001fe8:	b508      	push	{r3, lr}
- 8001fea:	4b05      	ldr	r3, [pc, #20]	; (8002000 <MAL_CheckAdd.lto_priv.93+0x18>)
+ 8001fea:	4b05      	ldr	r3, [pc, #20]	; (8002000 <MAL_CheckAdd.lto_priv.94+0x18>)
  8001fec:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
  8001ff0:	69db      	ldr	r3, [r3, #28]
- 8001ff2:	b11b      	cbz	r3, 8001ffc <MAL_CheckAdd.lto_priv.93+0x14>
+ 8001ff2:	b11b      	cbz	r3, 8001ffc <MAL_CheckAdd.lto_priv.94+0x14>
  8001ff4:	4608      	mov	r0, r1
  8001ff6:	4798      	blx	r3
  8001ff8:	b2c0      	uxtb	r0, r0
@@ -4613,17 +4613,17 @@ __STATIC_INLINE void NVIC_SystemReset(void)
  800201c:	20002448 	.word	0x20002448
  8002020:	2000241c 	.word	0x2000241c
 
-08002024 <usbd_dfu_DeInit.lto_priv.109>:
- 8002024:	4a07      	ldr	r2, [pc, #28]	; (8002044 <usbd_dfu_DeInit.lto_priv.109+0x20>)
+08002024 <usbd_dfu_DeInit.lto_priv.111>:
+ 8002024:	4a07      	ldr	r2, [pc, #28]	; (8002044 <usbd_dfu_DeInit.lto_priv.111+0x20>)
  8002026:	2302      	movs	r3, #2
  8002028:	b510      	push	{r4, lr}
  800202a:	7013      	strb	r3, [r2, #0]
- 800202c:	4a06      	ldr	r2, [pc, #24]	; (8002048 <usbd_dfu_DeInit.lto_priv.109+0x24>)
+ 800202c:	4a06      	ldr	r2, [pc, #24]	; (8002048 <usbd_dfu_DeInit.lto_priv.111+0x24>)
  800202e:	2400      	movs	r4, #0
  8002030:	7113      	strb	r3, [r2, #4]
- 8002032:	4b06      	ldr	r3, [pc, #24]	; (800204c <usbd_dfu_DeInit.lto_priv.109+0x28>)
+ 8002032:	4b06      	ldr	r3, [pc, #24]	; (800204c <usbd_dfu_DeInit.lto_priv.111+0x28>)
  8002034:	601c      	str	r4, [r3, #0]
- 8002036:	4b06      	ldr	r3, [pc, #24]	; (8002050 <usbd_dfu_DeInit.lto_priv.109+0x2c>)
+ 8002036:	4b06      	ldr	r3, [pc, #24]	; (8002050 <usbd_dfu_DeInit.lto_priv.111+0x2c>)
  8002038:	601c      	str	r4, [r3, #0]
  800203a:	f7ff ffe3 	bl	8002004 <MAL_DeInit>
  800203e:	4620      	mov	r0, r4
@@ -4671,31 +4671,31 @@ __STATIC_INLINE void NVIC_SystemReset(void)
  80020a2:	f7ff b8f9 	b.w	8001298 <USB_OTG_EP0_OutStart>
 	...
 
-080020a8 <EP0_TxSent.lto_priv.111>:
+080020a8 <EP0_TxSent.lto_priv.113>:
  80020a8:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
- 80020ac:	4b5c      	ldr	r3, [pc, #368]	; (8002220 <EP0_TxSent.lto_priv.111+0x178>)
+ 80020ac:	4b5c      	ldr	r3, [pc, #368]	; (8002220 <EP0_TxSent.lto_priv.113+0x178>)
  80020ae:	4680      	mov	r8, r0
  80020b0:	781a      	ldrb	r2, [r3, #0]
  80020b2:	461f      	mov	r7, r3
  80020b4:	2a04      	cmp	r2, #4
- 80020b6:	f040 8098 	bne.w	80021ea <EP0_TxSent.lto_priv.111+0x142>
- 80020ba:	4e5a      	ldr	r6, [pc, #360]	; (8002224 <EP0_TxSent.lto_priv.111+0x17c>)
- 80020bc:	4d5a      	ldr	r5, [pc, #360]	; (8002228 <EP0_TxSent.lto_priv.111+0x180>)
+ 80020b6:	f040 8098 	bne.w	80021ea <EP0_TxSent.lto_priv.113+0x142>
+ 80020ba:	4e5a      	ldr	r6, [pc, #360]	; (8002224 <EP0_TxSent.lto_priv.113+0x17c>)
+ 80020bc:	4d5a      	ldr	r5, [pc, #360]	; (8002228 <EP0_TxSent.lto_priv.113+0x180>)
  80020be:	6833      	ldr	r3, [r6, #0]
  80020c0:	2b00      	cmp	r3, #0
- 80020c2:	d14d      	bne.n	8002160 <EP0_TxSent.lto_priv.111+0xb8>
- 80020c4:	4b59      	ldr	r3, [pc, #356]	; (800222c <EP0_TxSent.lto_priv.111+0x184>)
+ 80020c2:	d14d      	bne.n	8002160 <EP0_TxSent.lto_priv.113+0xb8>
+ 80020c4:	4b59      	ldr	r3, [pc, #356]	; (800222c <EP0_TxSent.lto_priv.113+0x184>)
  80020c6:	781a      	ldrb	r2, [r3, #0]
- 80020c8:	b91a      	cbnz	r2, 80020d2 <EP0_TxSent.lto_priv.111+0x2a>
+ 80020c8:	b91a      	cbnz	r2, 80020d2 <EP0_TxSent.lto_priv.113+0x2a>
  80020ca:	682b      	ldr	r3, [r5, #0]
  80020cc:	2b01      	cmp	r3, #1
- 80020ce:	d13c      	bne.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
- 80020d0:	e083      	b.n	80021da <EP0_TxSent.lto_priv.111+0x132>
+ 80020ce:	d13c      	bne.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
+ 80020d0:	e083      	b.n	80021da <EP0_TxSent.lto_priv.113+0x132>
  80020d2:	2a21      	cmp	r2, #33	; 0x21
- 80020d4:	d10f      	bne.n	80020f6 <EP0_TxSent.lto_priv.111+0x4e>
+ 80020d4:	d10f      	bne.n	80020f6 <EP0_TxSent.lto_priv.113+0x4e>
  80020d6:	682a      	ldr	r2, [r5, #0]
  80020d8:	2a05      	cmp	r2, #5
- 80020da:	d136      	bne.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
+ 80020da:	d136      	bne.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
  80020dc:	78da      	ldrb	r2, [r3, #3]
  80020de:	7899      	ldrb	r1, [r3, #2]
  80020e0:	0412      	lsls	r2, r2, #16
@@ -4704,14 +4704,14 @@ __STATIC_INLINE void NVIC_SystemReset(void)
  80020e8:	791b      	ldrb	r3, [r3, #4]
  80020ea:	440a      	add	r2, r1
  80020ec:	eb02 6303 	add.w	r3, r2, r3, lsl #24
- 80020f0:	4a4f      	ldr	r2, [pc, #316]	; (8002230 <EP0_TxSent.lto_priv.111+0x188>)
+ 80020f0:	4a4f      	ldr	r2, [pc, #316]	; (8002230 <EP0_TxSent.lto_priv.113+0x188>)
  80020f2:	6013      	str	r3, [r2, #0]
- 80020f4:	e071      	b.n	80021da <EP0_TxSent.lto_priv.111+0x132>
+ 80020f4:	e071      	b.n	80021da <EP0_TxSent.lto_priv.113+0x132>
  80020f6:	2a41      	cmp	r2, #65	; 0x41
- 80020f8:	d127      	bne.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
+ 80020f8:	d127      	bne.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
  80020fa:	682a      	ldr	r2, [r5, #0]
  80020fc:	2a05      	cmp	r2, #5
- 80020fe:	d124      	bne.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
+ 80020fe:	d124      	bne.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
  8002100:	78da      	ldrb	r2, [r3, #3]
  8002102:	789c      	ldrb	r4, [r3, #2]
  8002104:	0412      	lsls	r2, r2, #16
@@ -4719,28 +4719,28 @@ __STATIC_INLINE void NVIC_SystemReset(void)
  800210a:	785c      	ldrb	r4, [r3, #1]
  800210c:	4422      	add	r2, r4
  800210e:	791c      	ldrb	r4, [r3, #4]
- 8002110:	4b47      	ldr	r3, [pc, #284]	; (8002230 <EP0_TxSent.lto_priv.111+0x188>)
+ 8002110:	4b47      	ldr	r3, [pc, #284]	; (8002230 <EP0_TxSent.lto_priv.113+0x188>)
  8002112:	eb02 6404 	add.w	r4, r2, r4, lsl #24
  8002116:	601c      	str	r4, [r3, #0]
- 8002118:	4b46      	ldr	r3, [pc, #280]	; (8002234 <EP0_TxSent.lto_priv.111+0x18c>)
+ 8002118:	4b46      	ldr	r3, [pc, #280]	; (8002234 <EP0_TxSent.lto_priv.113+0x18c>)
  800211a:	4621      	mov	r1, r4
  800211c:	f8d3 9000 	ldr.w	r9, [r3]
  8002120:	4648      	mov	r0, r9
- 8002122:	f7ff ff61 	bl	8001fe8 <MAL_CheckAdd.lto_priv.93>
- 8002126:	b980      	cbnz	r0, 800214a <EP0_TxSent.lto_priv.111+0xa2>
+ 8002122:	f7ff ff61 	bl	8001fe8 <MAL_CheckAdd.lto_priv.94>
+ 8002126:	b980      	cbnz	r0, 800214a <EP0_TxSent.lto_priv.113+0xa2>
  8002128:	f104 4378 	add.w	r3, r4, #4160749568	; 0xf8000000
  800212c:	f5b3 3f00 	cmp.w	r3, #131072	; 0x20000
- 8002130:	d30b      	bcc.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
+ 8002130:	d30b      	bcc.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
  8002132:	f1b9 0f01 	cmp.w	r9, #1
- 8002136:	d808      	bhi.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
- 8002138:	4b3f      	ldr	r3, [pc, #252]	; (8002238 <EP0_TxSent.lto_priv.111+0x190>)
+ 8002136:	d808      	bhi.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
+ 8002138:	4b3f      	ldr	r3, [pc, #252]	; (8002238 <EP0_TxSent.lto_priv.113+0x190>)
  800213a:	f853 3029 	ldr.w	r3, [r3, r9, lsl #2]
  800213e:	68db      	ldr	r3, [r3, #12]
- 8002140:	b11b      	cbz	r3, 800214a <EP0_TxSent.lto_priv.111+0xa2>
+ 8002140:	b11b      	cbz	r3, 800214a <EP0_TxSent.lto_priv.113+0xa2>
  8002142:	4620      	mov	r0, r4
  8002144:	4798      	blx	r3
  8002146:	2800      	cmp	r0, #0
- 8002148:	d047      	beq.n	80021da <EP0_TxSent.lto_priv.111+0x132>
+ 8002148:	d047      	beq.n	80021da <EP0_TxSent.lto_priv.113+0x132>
  800214a:	2300      	movs	r3, #0
  800214c:	f88d 3000 	strb.w	r3, [sp]
  8002150:	4669      	mov	r1, sp
@@ -4748,80 +4748,80 @@ __STATIC_INLINE void NVIC_SystemReset(void)
  8002154:	4640      	mov	r0, r8
  8002156:	f8ad 3006 	strh.w	r3, [sp, #6]
  800215a:	f7ff ff96 	bl	800208a <USBD_CtlError>
- 800215e:	e03c      	b.n	80021da <EP0_TxSent.lto_priv.111+0x132>
+ 800215e:	e03c      	b.n	80021da <EP0_TxSent.lto_priv.113+0x132>
  8002160:	2b01      	cmp	r3, #1
- 8002162:	d93a      	bls.n	80021da <EP0_TxSent.lto_priv.111+0x132>
- 8002164:	4a32      	ldr	r2, [pc, #200]	; (8002230 <EP0_TxSent.lto_priv.111+0x188>)
+ 8002162:	d93a      	bls.n	80021da <EP0_TxSent.lto_priv.113+0x132>
+ 8002164:	4a32      	ldr	r2, [pc, #200]	; (8002230 <EP0_TxSent.lto_priv.113+0x188>)
  8002166:	f503 237f 	add.w	r3, r3, #1044480	; 0xff000
  800216a:	6812      	ldr	r2, [r2, #0]
  800216c:	f603 73fe 	addw	r3, r3, #4094	; 0xffe
  8002170:	eb02 3903 	add.w	r9, r2, r3, lsl #12
- 8002174:	4b2f      	ldr	r3, [pc, #188]	; (8002234 <EP0_TxSent.lto_priv.111+0x18c>)
+ 8002174:	4b2f      	ldr	r3, [pc, #188]	; (8002234 <EP0_TxSent.lto_priv.113+0x18c>)
  8002176:	4649      	mov	r1, r9
  8002178:	681c      	ldr	r4, [r3, #0]
  800217a:	f8d5 a000 	ldr.w	sl, [r5]
  800217e:	4620      	mov	r0, r4
- 8002180:	f7ff ff32 	bl	8001fe8 <MAL_CheckAdd.lto_priv.93>
+ 8002180:	f7ff ff32 	bl	8001fe8 <MAL_CheckAdd.lto_priv.94>
  8002184:	2800      	cmp	r0, #0
- 8002186:	d1e0      	bne.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
+ 8002186:	d1e0      	bne.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
  8002188:	f109 4378 	add.w	r3, r9, #4160749568	; 0xf8000000
  800218c:	f5b3 3f00 	cmp.w	r3, #131072	; 0x20000
- 8002190:	d3db      	bcc.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
+ 8002190:	d3db      	bcc.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
  8002192:	2c01      	cmp	r4, #1
- 8002194:	d8d9      	bhi.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
- 8002196:	4b28      	ldr	r3, [pc, #160]	; (8002238 <EP0_TxSent.lto_priv.111+0x190>)
+ 8002194:	d8d9      	bhi.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
+ 8002196:	4b28      	ldr	r3, [pc, #160]	; (8002238 <EP0_TxSent.lto_priv.113+0x190>)
  8002198:	f853 b024 	ldr.w	fp, [r3, r4, lsl #2]
  800219c:	f8db 3010 	ldr.w	r3, [fp, #16]
  80021a0:	2b00      	cmp	r3, #0
- 80021a2:	d0d2      	beq.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
+ 80021a2:	d0d2      	beq.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
  80021a4:	2403      	movs	r4, #3
  80021a6:	f8db 3010 	ldr.w	r3, [fp, #16]
  80021aa:	4651      	mov	r1, sl
  80021ac:	4648      	mov	r0, r9
  80021ae:	4798      	blx	r3
- 80021b0:	b930      	cbnz	r0, 80021c0 <EP0_TxSent.lto_priv.111+0x118>
+ 80021b0:	b930      	cbnz	r0, 80021c0 <EP0_TxSent.lto_priv.113+0x118>
  80021b2:	f8db 3018 	ldr.w	r3, [fp, #24]
  80021b6:	4651      	mov	r1, sl
  80021b8:	4648      	mov	r0, r9
  80021ba:	4798      	blx	r3
- 80021bc:	b940      	cbnz	r0, 80021d0 <EP0_TxSent.lto_priv.111+0x128>
- 80021be:	e00c      	b.n	80021da <EP0_TxSent.lto_priv.111+0x132>
+ 80021bc:	b940      	cbnz	r0, 80021d0 <EP0_TxSent.lto_priv.113+0x128>
+ 80021be:	e00c      	b.n	80021da <EP0_TxSent.lto_priv.113+0x132>
  80021c0:	f8db 3010 	ldr.w	r3, [fp, #16]
  80021c4:	4651      	mov	r1, sl
  80021c6:	4648      	mov	r0, r9
  80021c8:	4798      	blx	r3
  80021ca:	2800      	cmp	r0, #0
- 80021cc:	d0f1      	beq.n	80021b2 <EP0_TxSent.lto_priv.111+0x10a>
- 80021ce:	e7bc      	b.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
+ 80021cc:	d0f1      	beq.n	80021b2 <EP0_TxSent.lto_priv.113+0x10a>
+ 80021ce:	e7bc      	b.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
  80021d0:	1e63      	subs	r3, r4, #1
  80021d2:	f013 04ff 	ands.w	r4, r3, #255	; 0xff
- 80021d6:	d1e6      	bne.n	80021a6 <EP0_TxSent.lto_priv.111+0xfe>
- 80021d8:	e7b7      	b.n	800214a <EP0_TxSent.lto_priv.111+0xa2>
+ 80021d6:	d1e6      	bne.n	80021a6 <EP0_TxSent.lto_priv.113+0xfe>
+ 80021d8:	e7b7      	b.n	800214a <EP0_TxSent.lto_priv.113+0xa2>
  80021da:	2300      	movs	r3, #0
- 80021dc:	4a17      	ldr	r2, [pc, #92]	; (800223c <EP0_TxSent.lto_priv.111+0x194>)
+ 80021dc:	4a17      	ldr	r2, [pc, #92]	; (800223c <EP0_TxSent.lto_priv.113+0x194>)
  80021de:	602b      	str	r3, [r5, #0]
  80021e0:	6033      	str	r3, [r6, #0]
  80021e2:	2303      	movs	r3, #3
  80021e4:	703b      	strb	r3, [r7, #0]
  80021e6:	7113      	strb	r3, [r2, #4]
- 80021e8:	e015      	b.n	8002216 <EP0_TxSent.lto_priv.111+0x16e>
+ 80021e8:	e015      	b.n	8002216 <EP0_TxSent.lto_priv.113+0x16e>
  80021ea:	2a07      	cmp	r2, #7
- 80021ec:	d113      	bne.n	8002216 <EP0_TxSent.lto_priv.111+0x16e>
- 80021ee:	4a14      	ldr	r2, [pc, #80]	; (8002240 <EP0_TxSent.lto_priv.111+0x198>)
+ 80021ec:	d113      	bne.n	8002216 <EP0_TxSent.lto_priv.113+0x16e>
+ 80021ee:	4a14      	ldr	r2, [pc, #80]	; (8002240 <EP0_TxSent.lto_priv.113+0x198>)
  80021f0:	2100      	movs	r1, #0
  80021f2:	6011      	str	r1, [r2, #0]
- 80021f4:	4a13      	ldr	r2, [pc, #76]	; (8002244 <EP0_TxSent.lto_priv.111+0x19c>)
+ 80021f4:	4a13      	ldr	r2, [pc, #76]	; (8002244 <EP0_TxSent.lto_priv.113+0x19c>)
  80021f6:	7f52      	ldrb	r2, [r2, #29]
  80021f8:	f012 0f04 	tst.w	r2, #4
- 80021fc:	4a0f      	ldr	r2, [pc, #60]	; (800223c <EP0_TxSent.lto_priv.111+0x194>)
- 80021fe:	d003      	beq.n	8002208 <EP0_TxSent.lto_priv.111+0x160>
+ 80021fc:	4a0f      	ldr	r2, [pc, #60]	; (800223c <EP0_TxSent.lto_priv.113+0x194>)
+ 80021fe:	d003      	beq.n	8002208 <EP0_TxSent.lto_priv.113+0x160>
  8002200:	2106      	movs	r1, #6
  8002202:	7019      	strb	r1, [r3, #0]
  8002204:	7111      	strb	r1, [r2, #4]
- 8002206:	e006      	b.n	8002216 <EP0_TxSent.lto_priv.111+0x16e>
+ 8002206:	e006      	b.n	8002216 <EP0_TxSent.lto_priv.113+0x16e>
  8002208:	2108      	movs	r1, #8
  800220a:	7019      	strb	r1, [r3, #0]
- 800220c:	4b0e      	ldr	r3, [pc, #56]	; (8002248 <EP0_TxSent.lto_priv.111+0x1a0>)
+ 800220c:	4b0e      	ldr	r3, [pc, #56]	; (8002248 <EP0_TxSent.lto_priv.113+0x1a0>)
  800220e:	7111      	strb	r1, [r2, #4]
  8002210:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
  8002214:	601a      	str	r2, [r3, #0]
@@ -4841,109 +4841,109 @@ __STATIC_INLINE void NVIC_SystemReset(void)
  8002244:	20002356 	.word	0x20002356
  8002248:	200025a8 	.word	0x200025a8
 
-0800224c <usbd_dfu_Setup.lto_priv.110>:
+0800224c <usbd_dfu_Setup.lto_priv.112>:
  800224c:	e92d 41ff 	stmdb	sp!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, lr}
  8002250:	f64e 62c1 	movw	r2, #61121	; 0xeec1
  8002254:	880b      	ldrh	r3, [r1, #0]
  8002256:	4605      	mov	r5, r0
  8002258:	4293      	cmp	r3, r2
- 800225a:	d102      	bne.n	8002262 <usbd_dfu_Setup.lto_priv.110+0x16>
+ 800225a:	d102      	bne.n	8002262 <usbd_dfu_Setup.lto_priv.112+0x16>
  800225c:	888b      	ldrh	r3, [r1, #4]
  800225e:	2b05      	cmp	r3, #5
- 8002260:	e005      	b.n	800226e <usbd_dfu_Setup.lto_priv.110+0x22>
+ 8002260:	e005      	b.n	800226e <usbd_dfu_Setup.lto_priv.112+0x22>
  8002262:	f64e 62c0 	movw	r2, #61120	; 0xeec0
  8002266:	4293      	cmp	r3, r2
- 8002268:	d117      	bne.n	800229a <usbd_dfu_Setup.lto_priv.110+0x4e>
+ 8002268:	d117      	bne.n	800229a <usbd_dfu_Setup.lto_priv.112+0x4e>
  800226a:	888b      	ldrh	r3, [r1, #4]
  800226c:	2b04      	cmp	r3, #4
- 800226e:	d114      	bne.n	800229a <usbd_dfu_Setup.lto_priv.110+0x4e>
+ 800226e:	d114      	bne.n	800229a <usbd_dfu_Setup.lto_priv.112+0x4e>
  8002270:	888b      	ldrh	r3, [r1, #4]
  8002272:	2b04      	cmp	r3, #4
- 8002274:	d102      	bne.n	800227c <usbd_dfu_Setup.lto_priv.110+0x30>
+ 8002274:	d102      	bne.n	800227c <usbd_dfu_Setup.lto_priv.112+0x30>
  8002276:	88ca      	ldrh	r2, [r1, #6]
- 8002278:	49a7      	ldr	r1, [pc, #668]	; (8002518 <usbd_dfu_Setup.lto_priv.110+0x2cc>)
- 800227a:	e09b      	b.n	80023b4 <usbd_dfu_Setup.lto_priv.110+0x168>
+ 8002278:	49a7      	ldr	r1, [pc, #668]	; (8002518 <usbd_dfu_Setup.lto_priv.112+0x2cc>)
+ 800227a:	e09b      	b.n	80023b4 <usbd_dfu_Setup.lto_priv.112+0x168>
  800227c:	2b05      	cmp	r3, #5
- 800227e:	f040 8184 	bne.w	800258a <usbd_dfu_Setup.lto_priv.110+0x33e>
+ 800227e:	f040 8184 	bne.w	800258a <usbd_dfu_Setup.lto_priv.112+0x33e>
  8002282:	788c      	ldrb	r4, [r1, #2]
  8002284:	88ca      	ldrh	r2, [r1, #6]
- 8002286:	b90c      	cbnz	r4, 800228c <usbd_dfu_Setup.lto_priv.110+0x40>
- 8002288:	49a4      	ldr	r1, [pc, #656]	; (800251c <usbd_dfu_Setup.lto_priv.110+0x2d0>)
- 800228a:	e173      	b.n	8002574 <usbd_dfu_Setup.lto_priv.110+0x328>
+ 8002286:	b90c      	cbnz	r4, 800228c <usbd_dfu_Setup.lto_priv.112+0x40>
+ 8002288:	49a4      	ldr	r1, [pc, #656]	; (800251c <usbd_dfu_Setup.lto_priv.112+0x2d0>)
+ 800228a:	e173      	b.n	8002574 <usbd_dfu_Setup.lto_priv.112+0x328>
  800228c:	2400      	movs	r4, #0
  800228e:	9401      	str	r4, [sp, #4]
  8002290:	9402      	str	r4, [sp, #8]
  8002292:	f8ad 400c 	strh.w	r4, [sp, #12]
  8002296:	a901      	add	r1, sp, #4
- 8002298:	e16c      	b.n	8002574 <usbd_dfu_Setup.lto_priv.110+0x328>
+ 8002298:	e16c      	b.n	8002574 <usbd_dfu_Setup.lto_priv.112+0x328>
  800229a:	780c      	ldrb	r4, [r1, #0]
  800229c:	f014 0460 	ands.w	r4, r4, #96	; 0x60
- 80022a0:	f000 8152 	beq.w	8002548 <usbd_dfu_Setup.lto_priv.110+0x2fc>
+ 80022a0:	f000 8152 	beq.w	8002548 <usbd_dfu_Setup.lto_priv.112+0x2fc>
  80022a4:	2c20      	cmp	r4, #32
- 80022a6:	f040 8172 	bne.w	800258e <usbd_dfu_Setup.lto_priv.110+0x342>
+ 80022a6:	f040 8172 	bne.w	800258e <usbd_dfu_Setup.lto_priv.112+0x342>
  80022aa:	784c      	ldrb	r4, [r1, #1]
  80022ac:	2c06      	cmp	r4, #6
- 80022ae:	f200 812e 	bhi.w	800250e <usbd_dfu_Setup.lto_priv.110+0x2c2>
+ 80022ae:	f200 812e 	bhi.w	800250e <usbd_dfu_Setup.lto_priv.112+0x2c2>
  80022b2:	e8df f014 	tbh	[pc, r4, lsl #1]
  80022b6:	00fc      	.short	0x00fc
  80022b8:	00300007 	.word	0x00300007
  80022bc:	00d00098 	.word	0x00d00098
  80022c0:	00e400e1 	.word	0x00e400e1
  80022c4:	88ca      	ldrh	r2, [r1, #6]
- 80022c6:	4b96      	ldr	r3, [pc, #600]	; (8002520 <usbd_dfu_Setup.lto_priv.110+0x2d4>)
- 80022c8:	b1c2      	cbz	r2, 80022fc <usbd_dfu_Setup.lto_priv.110+0xb0>
+ 80022c6:	4b96      	ldr	r3, [pc, #600]	; (8002520 <usbd_dfu_Setup.lto_priv.112+0x2d4>)
+ 80022c8:	b1c2      	cbz	r2, 80022fc <usbd_dfu_Setup.lto_priv.112+0xb0>
  80022ca:	7818      	ldrb	r0, [r3, #0]
  80022cc:	2802      	cmp	r0, #2
- 80022ce:	d001      	beq.n	80022d4 <usbd_dfu_Setup.lto_priv.110+0x88>
+ 80022ce:	d001      	beq.n	80022d4 <usbd_dfu_Setup.lto_priv.112+0x88>
  80022d0:	2805      	cmp	r0, #5
- 80022d2:	d176      	bne.n	80023c2 <usbd_dfu_Setup.lto_priv.110+0x176>
+ 80022d2:	d176      	bne.n	80023c2 <usbd_dfu_Setup.lto_priv.112+0x176>
  80022d4:	8848      	ldrh	r0, [r1, #2]
- 80022d6:	4993      	ldr	r1, [pc, #588]	; (8002524 <usbd_dfu_Setup.lto_priv.110+0x2d8>)
+ 80022d6:	4993      	ldr	r1, [pc, #588]	; (8002524 <usbd_dfu_Setup.lto_priv.112+0x2d8>)
  80022d8:	f8c5 22ec 	str.w	r2, [r5, #748]	; 0x2ec
  80022dc:	6008      	str	r0, [r1, #0]
- 80022de:	4992      	ldr	r1, [pc, #584]	; (8002528 <usbd_dfu_Setup.lto_priv.110+0x2dc>)
+ 80022de:	4992      	ldr	r1, [pc, #584]	; (8002528 <usbd_dfu_Setup.lto_priv.112+0x2dc>)
  80022e0:	f8c5 22e8 	str.w	r2, [r5, #744]	; 0x2e8
  80022e4:	600a      	str	r2, [r1, #0]
  80022e6:	2103      	movs	r1, #3
  80022e8:	7019      	strb	r1, [r3, #0]
- 80022ea:	4b90      	ldr	r3, [pc, #576]	; (800252c <usbd_dfu_Setup.lto_priv.110+0x2e0>)
+ 80022ea:	4b90      	ldr	r3, [pc, #576]	; (800252c <usbd_dfu_Setup.lto_priv.112+0x2e0>)
  80022ec:	f885 10e1 	strb.w	r1, [r5, #225]	; 0xe1
  80022f0:	7119      	strb	r1, [r3, #4]
  80022f2:	4628      	mov	r0, r5
- 80022f4:	498e      	ldr	r1, [pc, #568]	; (8002530 <usbd_dfu_Setup.lto_priv.110+0x2e4>)
+ 80022f4:	498e      	ldr	r1, [pc, #568]	; (8002530 <usbd_dfu_Setup.lto_priv.112+0x2e4>)
  80022f6:	f001 f8d7 	bl	80034a8 <DCD_EP_PrepareRx.constprop.7>
- 80022fa:	e148      	b.n	800258e <usbd_dfu_Setup.lto_priv.110+0x342>
+ 80022fa:	e148      	b.n	800258e <usbd_dfu_Setup.lto_priv.112+0x342>
  80022fc:	781a      	ldrb	r2, [r3, #0]
  80022fe:	2a05      	cmp	r2, #5
- 8002300:	d001      	beq.n	8002306 <usbd_dfu_Setup.lto_priv.110+0xba>
+ 8002300:	d001      	beq.n	8002306 <usbd_dfu_Setup.lto_priv.112+0xba>
  8002302:	2a02      	cmp	r2, #2
- 8002304:	d15d      	bne.n	80023c2 <usbd_dfu_Setup.lto_priv.110+0x176>
- 8002306:	4a8b      	ldr	r2, [pc, #556]	; (8002534 <usbd_dfu_Setup.lto_priv.110+0x2e8>)
+ 8002304:	d15d      	bne.n	80023c2 <usbd_dfu_Setup.lto_priv.112+0x176>
+ 8002306:	4a8b      	ldr	r2, [pc, #556]	; (8002534 <usbd_dfu_Setup.lto_priv.112+0x2e8>)
  8002308:	2101      	movs	r1, #1
  800230a:	6011      	str	r1, [r2, #0]
  800230c:	2206      	movs	r2, #6
  800230e:	701a      	strb	r2, [r3, #0]
- 8002310:	4b86      	ldr	r3, [pc, #536]	; (800252c <usbd_dfu_Setup.lto_priv.110+0x2e0>)
+ 8002310:	4b86      	ldr	r3, [pc, #536]	; (800252c <usbd_dfu_Setup.lto_priv.112+0x2e0>)
  8002312:	711a      	strb	r2, [r3, #4]
- 8002314:	e13b      	b.n	800258e <usbd_dfu_Setup.lto_priv.110+0x342>
+ 8002314:	e13b      	b.n	800258e <usbd_dfu_Setup.lto_priv.112+0x342>
  8002316:	88cf      	ldrh	r7, [r1, #6]
- 8002318:	4b81      	ldr	r3, [pc, #516]	; (8002520 <usbd_dfu_Setup.lto_priv.110+0x2d4>)
+ 8002318:	4b81      	ldr	r3, [pc, #516]	; (8002520 <usbd_dfu_Setup.lto_priv.112+0x2d4>)
  800231a:	2f00      	cmp	r7, #0
- 800231c:	d05d      	beq.n	80023da <usbd_dfu_Setup.lto_priv.110+0x18e>
+ 800231c:	d05d      	beq.n	80023da <usbd_dfu_Setup.lto_priv.112+0x18e>
  800231e:	7818      	ldrb	r0, [r3, #0]
- 8002320:	4a80      	ldr	r2, [pc, #512]	; (8002524 <usbd_dfu_Setup.lto_priv.110+0x2d8>)
+ 8002320:	4a80      	ldr	r2, [pc, #512]	; (8002524 <usbd_dfu_Setup.lto_priv.112+0x2d8>)
  8002322:	2802      	cmp	r0, #2
- 8002324:	f8df 8200 	ldr.w	r8, [pc, #512]	; 8002528 <usbd_dfu_Setup.lto_priv.110+0x2dc>
- 8002328:	d001      	beq.n	800232e <usbd_dfu_Setup.lto_priv.110+0xe2>
+ 8002324:	f8df 8200 	ldr.w	r8, [pc, #512]	; 8002528 <usbd_dfu_Setup.lto_priv.112+0x2dc>
+ 8002328:	d001      	beq.n	800232e <usbd_dfu_Setup.lto_priv.112+0xe2>
  800232a:	2809      	cmp	r0, #9
- 800232c:	d14d      	bne.n	80023ca <usbd_dfu_Setup.lto_priv.110+0x17e>
+ 800232c:	d14d      	bne.n	80023ca <usbd_dfu_Setup.lto_priv.112+0x17e>
  800232e:	884e      	ldrh	r6, [r1, #2]
  8002330:	f8c8 7000 	str.w	r7, [r8]
  8002334:	6016      	str	r6, [r2, #0]
- 8002336:	4a7d      	ldr	r2, [pc, #500]	; (800252c <usbd_dfu_Setup.lto_priv.110+0x2e0>)
- 8002338:	b97e      	cbnz	r6, 800235a <usbd_dfu_Setup.lto_priv.110+0x10e>
+ 8002336:	4a7d      	ldr	r2, [pc, #500]	; (800252c <usbd_dfu_Setup.lto_priv.112+0x2e0>)
+ 8002338:	b97e      	cbnz	r6, 800235a <usbd_dfu_Setup.lto_priv.112+0x10e>
  800233a:	2f03      	cmp	r7, #3
- 800233c:	497c      	ldr	r1, [pc, #496]	; (8002530 <usbd_dfu_Setup.lto_priv.110+0x2e4>)
+ 800233c:	497c      	ldr	r1, [pc, #496]	; (8002530 <usbd_dfu_Setup.lto_priv.112+0x2e4>)
  800233e:	bf98      	it	ls
  8002340:	2409      	movls	r4, #9
  8002342:	701c      	strb	r4, [r3, #0]
@@ -4956,182 +4956,182 @@ __STATIC_INLINE void NVIC_SystemReset(void)
  8002350:	700e      	strb	r6, [r1, #0]
  8002352:	708b      	strb	r3, [r1, #2]
  8002354:	f7ff fe8c 	bl	8002070 <USBD_CtlSendData>
- 8002358:	e0d7      	b.n	800250a <usbd_dfu_Setup.lto_priv.110+0x2be>
+ 8002358:	e0d7      	b.n	800250a <usbd_dfu_Setup.lto_priv.112+0x2be>
  800235a:	2e01      	cmp	r6, #1
- 800235c:	d02e      	beq.n	80023bc <usbd_dfu_Setup.lto_priv.110+0x170>
+ 800235c:	d02e      	beq.n	80023bc <usbd_dfu_Setup.lto_priv.112+0x170>
  800235e:	2109      	movs	r1, #9
  8002360:	7019      	strb	r1, [r3, #0]
- 8002362:	4b75      	ldr	r3, [pc, #468]	; (8002538 <usbd_dfu_Setup.lto_priv.110+0x2ec>)
+ 8002362:	4b75      	ldr	r3, [pc, #468]	; (8002538 <usbd_dfu_Setup.lto_priv.112+0x2ec>)
  8002364:	7111      	strb	r1, [r2, #4]
  8002366:	6818      	ldr	r0, [r3, #0]
  8002368:	2801      	cmp	r0, #1
- 800236a:	d907      	bls.n	800237c <usbd_dfu_Setup.lto_priv.110+0x130>
+ 800236a:	d907      	bls.n	800237c <usbd_dfu_Setup.lto_priv.112+0x130>
  800236c:	2100      	movs	r1, #0
  800236e:	f44f 5280 	mov.w	r2, #4096	; 0x1000
- 8002372:	486f      	ldr	r0, [pc, #444]	; (8002530 <usbd_dfu_Setup.lto_priv.110+0x2e4>)
+ 8002372:	486f      	ldr	r0, [pc, #444]	; (8002530 <usbd_dfu_Setup.lto_priv.112+0x2e4>)
  8002374:	f000 fed0 	bl	8003118 <memset>
- 8002378:	496d      	ldr	r1, [pc, #436]	; (8002530 <usbd_dfu_Setup.lto_priv.110+0x2e4>)
- 800237a:	e019      	b.n	80023b0 <usbd_dfu_Setup.lto_priv.110+0x164>
- 800237c:	4b6f      	ldr	r3, [pc, #444]	; (800253c <usbd_dfu_Setup.lto_priv.110+0x2f0>)
+ 8002378:	496d      	ldr	r1, [pc, #436]	; (8002530 <usbd_dfu_Setup.lto_priv.112+0x2e4>)
+ 800237a:	e019      	b.n	80023b0 <usbd_dfu_Setup.lto_priv.112+0x164>
+ 800237c:	4b6f      	ldr	r3, [pc, #444]	; (800253c <usbd_dfu_Setup.lto_priv.112+0x2f0>)
  800237e:	f853 4020 	ldr.w	r4, [r3, r0, lsl #2]
  8002382:	6963      	ldr	r3, [r4, #20]
  8002384:	2b00      	cmp	r3, #0
- 8002386:	d0f1      	beq.n	800236c <usbd_dfu_Setup.lto_priv.110+0x120>
- 8002388:	4b6d      	ldr	r3, [pc, #436]	; (8002540 <usbd_dfu_Setup.lto_priv.110+0x2f4>)
+ 8002386:	d0f1      	beq.n	800236c <usbd_dfu_Setup.lto_priv.112+0x120>
+ 8002388:	4b6d      	ldr	r3, [pc, #436]	; (8002540 <usbd_dfu_Setup.lto_priv.112+0x2f4>)
  800238a:	f506 267f 	add.w	r6, r6, #1044480	; 0xff000
  800238e:	681b      	ldr	r3, [r3, #0]
  8002390:	f606 76fe 	addw	r6, r6, #4094	; 0xffe
  8002394:	eb03 3606 	add.w	r6, r3, r6, lsl #12
  8002398:	4631      	mov	r1, r6
- 800239a:	f7ff fe25 	bl	8001fe8 <MAL_CheckAdd.lto_priv.93>
+ 800239a:	f7ff fe25 	bl	8001fe8 <MAL_CheckAdd.lto_priv.94>
  800239e:	2800      	cmp	r0, #0
- 80023a0:	d1e4      	bne.n	800236c <usbd_dfu_Setup.lto_priv.110+0x120>
+ 80023a0:	d1e4      	bne.n	800236c <usbd_dfu_Setup.lto_priv.112+0x120>
  80023a2:	6963      	ldr	r3, [r4, #20]
  80023a4:	4639      	mov	r1, r7
  80023a6:	4630      	mov	r0, r6
  80023a8:	4798      	blx	r3
  80023aa:	2800      	cmp	r0, #0
- 80023ac:	d0de      	beq.n	800236c <usbd_dfu_Setup.lto_priv.110+0x120>
+ 80023ac:	d0de      	beq.n	800236c <usbd_dfu_Setup.lto_priv.112+0x120>
  80023ae:	4601      	mov	r1, r0
  80023b0:	f8b8 2000 	ldrh.w	r2, [r8]
  80023b4:	4628      	mov	r0, r5
  80023b6:	f7ff fe5b 	bl	8002070 <USBD_CtlSendData>
- 80023ba:	e0e8      	b.n	800258e <usbd_dfu_Setup.lto_priv.110+0x342>
+ 80023ba:	e0e8      	b.n	800258e <usbd_dfu_Setup.lto_priv.112+0x342>
  80023bc:	200f      	movs	r0, #15
  80023be:	7018      	strb	r0, [r3, #0]
  80023c0:	7110      	strb	r0, [r2, #4]
  80023c2:	4628      	mov	r0, r5
  80023c4:	f7ff fe61 	bl	800208a <USBD_CtlError>
- 80023c8:	e0e1      	b.n	800258e <usbd_dfu_Setup.lto_priv.110+0x342>
+ 80023c8:	e0e1      	b.n	800258e <usbd_dfu_Setup.lto_priv.112+0x342>
  80023ca:	2400      	movs	r4, #0
  80023cc:	4628      	mov	r0, r5
  80023ce:	f8c8 4000 	str.w	r4, [r8]
  80023d2:	6014      	str	r4, [r2, #0]
  80023d4:	f7ff fe59 	bl	800208a <USBD_CtlError>
- 80023d8:	e0da      	b.n	8002590 <usbd_dfu_Setup.lto_priv.110+0x344>
+ 80023d8:	e0da      	b.n	8002590 <usbd_dfu_Setup.lto_priv.112+0x344>
  80023da:	2202      	movs	r2, #2
  80023dc:	701a      	strb	r2, [r3, #0]
- 80023de:	4b53      	ldr	r3, [pc, #332]	; (800252c <usbd_dfu_Setup.lto_priv.110+0x2e0>)
+ 80023de:	4b53      	ldr	r3, [pc, #332]	; (800252c <usbd_dfu_Setup.lto_priv.112+0x2e0>)
  80023e0:	463c      	mov	r4, r7
  80023e2:	711a      	strb	r2, [r3, #4]
- 80023e4:	e0d4      	b.n	8002590 <usbd_dfu_Setup.lto_priv.110+0x344>
- 80023e6:	4b4e      	ldr	r3, [pc, #312]	; (8002520 <usbd_dfu_Setup.lto_priv.110+0x2d4>)
+ 80023e4:	e0d4      	b.n	8002590 <usbd_dfu_Setup.lto_priv.112+0x344>
+ 80023e6:	4b4e      	ldr	r3, [pc, #312]	; (8002520 <usbd_dfu_Setup.lto_priv.112+0x2d4>)
  80023e8:	781a      	ldrb	r2, [r3, #0]
  80023ea:	2a06      	cmp	r2, #6
- 80023ec:	d01f      	beq.n	800242e <usbd_dfu_Setup.lto_priv.110+0x1e2>
+ 80023ec:	d01f      	beq.n	800242e <usbd_dfu_Setup.lto_priv.112+0x1e2>
  80023ee:	2a07      	cmp	r2, #7
- 80023f0:	d02a      	beq.n	8002448 <usbd_dfu_Setup.lto_priv.110+0x1fc>
+ 80023f0:	d02a      	beq.n	8002448 <usbd_dfu_Setup.lto_priv.112+0x1fc>
  80023f2:	2a03      	cmp	r2, #3
- 80023f4:	d12c      	bne.n	8002450 <usbd_dfu_Setup.lto_priv.110+0x204>
- 80023f6:	4a4c      	ldr	r2, [pc, #304]	; (8002528 <usbd_dfu_Setup.lto_priv.110+0x2dc>)
+ 80023f4:	d12c      	bne.n	8002450 <usbd_dfu_Setup.lto_priv.112+0x204>
+ 80023f6:	4a4c      	ldr	r2, [pc, #304]	; (8002528 <usbd_dfu_Setup.lto_priv.112+0x2dc>)
  80023f8:	6811      	ldr	r1, [r2, #0]
- 80023fa:	4a4c      	ldr	r2, [pc, #304]	; (800252c <usbd_dfu_Setup.lto_priv.110+0x2e0>)
- 80023fc:	b199      	cbz	r1, 8002426 <usbd_dfu_Setup.lto_priv.110+0x1da>
+ 80023fa:	4a4c      	ldr	r2, [pc, #304]	; (800252c <usbd_dfu_Setup.lto_priv.112+0x2e0>)
+ 80023fc:	b199      	cbz	r1, 8002426 <usbd_dfu_Setup.lto_priv.112+0x1da>
  80023fe:	2104      	movs	r1, #4
  8002400:	7019      	strb	r1, [r3, #0]
- 8002402:	4b48      	ldr	r3, [pc, #288]	; (8002524 <usbd_dfu_Setup.lto_priv.110+0x2d8>)
+ 8002402:	4b48      	ldr	r3, [pc, #288]	; (8002524 <usbd_dfu_Setup.lto_priv.112+0x2d8>)
  8002404:	7111      	strb	r1, [r2, #4]
  8002406:	681a      	ldr	r2, [r3, #0]
- 8002408:	494b      	ldr	r1, [pc, #300]	; (8002538 <usbd_dfu_Setup.lto_priv.110+0x2ec>)
- 800240a:	4b4d      	ldr	r3, [pc, #308]	; (8002540 <usbd_dfu_Setup.lto_priv.110+0x2f4>)
- 800240c:	b92a      	cbnz	r2, 800241a <usbd_dfu_Setup.lto_priv.110+0x1ce>
- 800240e:	4848      	ldr	r0, [pc, #288]	; (8002530 <usbd_dfu_Setup.lto_priv.110+0x2e4>)
+ 8002408:	494b      	ldr	r1, [pc, #300]	; (8002538 <usbd_dfu_Setup.lto_priv.112+0x2ec>)
+ 800240a:	4b4d      	ldr	r3, [pc, #308]	; (8002540 <usbd_dfu_Setup.lto_priv.112+0x2f4>)
+ 800240c:	b92a      	cbnz	r2, 800241a <usbd_dfu_Setup.lto_priv.112+0x1ce>
+ 800240e:	4848      	ldr	r0, [pc, #288]	; (8002530 <usbd_dfu_Setup.lto_priv.112+0x2e4>)
  8002410:	7800      	ldrb	r0, [r0, #0]
  8002412:	2841      	cmp	r0, #65	; 0x41
- 8002414:	d101      	bne.n	800241a <usbd_dfu_Setup.lto_priv.110+0x1ce>
+ 8002414:	d101      	bne.n	800241a <usbd_dfu_Setup.lto_priv.112+0x1ce>
  8002416:	6808      	ldr	r0, [r1, #0]
- 8002418:	e001      	b.n	800241e <usbd_dfu_Setup.lto_priv.110+0x1d2>
+ 8002418:	e001      	b.n	800241e <usbd_dfu_Setup.lto_priv.112+0x1d2>
  800241a:	6808      	ldr	r0, [r1, #0]
  800241c:	2201      	movs	r2, #1
  800241e:	6819      	ldr	r1, [r3, #0]
  8002420:	f001 f870 	bl	8003504 <MAL_GetStatus.constprop.3>
- 8002424:	e014      	b.n	8002450 <usbd_dfu_Setup.lto_priv.110+0x204>
+ 8002424:	e014      	b.n	8002450 <usbd_dfu_Setup.lto_priv.112+0x204>
  8002426:	2105      	movs	r1, #5
  8002428:	7019      	strb	r1, [r3, #0]
  800242a:	7111      	strb	r1, [r2, #4]
- 800242c:	e010      	b.n	8002450 <usbd_dfu_Setup.lto_priv.110+0x204>
- 800242e:	4a41      	ldr	r2, [pc, #260]	; (8002534 <usbd_dfu_Setup.lto_priv.110+0x2e8>)
+ 800242c:	e010      	b.n	8002450 <usbd_dfu_Setup.lto_priv.112+0x204>
+ 800242e:	4a41      	ldr	r2, [pc, #260]	; (8002534 <usbd_dfu_Setup.lto_priv.112+0x2e8>)
  8002430:	6812      	ldr	r2, [r2, #0]
  8002432:	2a01      	cmp	r2, #1
- 8002434:	d103      	bne.n	800243e <usbd_dfu_Setup.lto_priv.110+0x1f2>
+ 8002434:	d103      	bne.n	800243e <usbd_dfu_Setup.lto_priv.112+0x1f2>
  8002436:	2207      	movs	r2, #7
  8002438:	701a      	strb	r2, [r3, #0]
  800243a:	2205      	movs	r2, #5
- 800243c:	e006      	b.n	800244c <usbd_dfu_Setup.lto_priv.110+0x200>
- 800243e:	b93a      	cbnz	r2, 8002450 <usbd_dfu_Setup.lto_priv.110+0x204>
- 8002440:	4a40      	ldr	r2, [pc, #256]	; (8002544 <usbd_dfu_Setup.lto_priv.110+0x2f8>)
+ 800243c:	e006      	b.n	800244c <usbd_dfu_Setup.lto_priv.112+0x200>
+ 800243e:	b93a      	cbnz	r2, 8002450 <usbd_dfu_Setup.lto_priv.112+0x204>
+ 8002440:	4a40      	ldr	r2, [pc, #256]	; (8002544 <usbd_dfu_Setup.lto_priv.112+0x2f8>)
  8002442:	7f52      	ldrb	r2, [r2, #29]
  8002444:	0752      	lsls	r2, r2, #29
- 8002446:	d503      	bpl.n	8002450 <usbd_dfu_Setup.lto_priv.110+0x204>
+ 8002446:	d503      	bpl.n	8002450 <usbd_dfu_Setup.lto_priv.112+0x204>
  8002448:	2202      	movs	r2, #2
  800244a:	701a      	strb	r2, [r3, #0]
- 800244c:	4b37      	ldr	r3, [pc, #220]	; (800252c <usbd_dfu_Setup.lto_priv.110+0x2e0>)
+ 800244c:	4b37      	ldr	r3, [pc, #220]	; (800252c <usbd_dfu_Setup.lto_priv.112+0x2e0>)
  800244e:	711a      	strb	r2, [r3, #4]
  8002450:	2206      	movs	r2, #6
- 8002452:	4936      	ldr	r1, [pc, #216]	; (800252c <usbd_dfu_Setup.lto_priv.110+0x2e0>)
- 8002454:	e7ae      	b.n	80023b4 <usbd_dfu_Setup.lto_priv.110+0x168>
- 8002456:	4a32      	ldr	r2, [pc, #200]	; (8002520 <usbd_dfu_Setup.lto_priv.110+0x2d4>)
+ 8002452:	4936      	ldr	r1, [pc, #216]	; (800252c <usbd_dfu_Setup.lto_priv.112+0x2e0>)
+ 8002454:	e7ae      	b.n	80023b4 <usbd_dfu_Setup.lto_priv.112+0x168>
+ 8002456:	4a32      	ldr	r2, [pc, #200]	; (8002520 <usbd_dfu_Setup.lto_priv.112+0x2d4>)
  8002458:	7813      	ldrb	r3, [r2, #0]
  800245a:	2b0a      	cmp	r3, #10
- 800245c:	4b33      	ldr	r3, [pc, #204]	; (800252c <usbd_dfu_Setup.lto_priv.110+0x2e0>)
- 800245e:	d105      	bne.n	800246c <usbd_dfu_Setup.lto_priv.110+0x220>
+ 800245c:	4b33      	ldr	r3, [pc, #204]	; (800252c <usbd_dfu_Setup.lto_priv.112+0x2e0>)
+ 800245e:	d105      	bne.n	800246c <usbd_dfu_Setup.lto_priv.112+0x220>
  8002460:	2102      	movs	r1, #2
  8002462:	2400      	movs	r4, #0
  8002464:	7011      	strb	r1, [r2, #0]
  8002466:	701c      	strb	r4, [r3, #0]
  8002468:	7119      	strb	r1, [r3, #4]
- 800246a:	e091      	b.n	8002590 <usbd_dfu_Setup.lto_priv.110+0x344>
+ 800246a:	e091      	b.n	8002590 <usbd_dfu_Setup.lto_priv.112+0x344>
  800246c:	210a      	movs	r1, #10
  800246e:	7011      	strb	r1, [r2, #0]
  8002470:	220e      	movs	r2, #14
  8002472:	701a      	strb	r2, [r3, #0]
  8002474:	7119      	strb	r1, [r3, #4]
- 8002476:	e08a      	b.n	800258e <usbd_dfu_Setup.lto_priv.110+0x342>
+ 8002476:	e08a      	b.n	800258e <usbd_dfu_Setup.lto_priv.112+0x342>
  8002478:	2201      	movs	r2, #1
- 800247a:	4929      	ldr	r1, [pc, #164]	; (8002520 <usbd_dfu_Setup.lto_priv.110+0x2d4>)
- 800247c:	e79a      	b.n	80023b4 <usbd_dfu_Setup.lto_priv.110+0x168>
- 800247e:	4928      	ldr	r1, [pc, #160]	; (8002520 <usbd_dfu_Setup.lto_priv.110+0x2d4>)
+ 800247a:	4929      	ldr	r1, [pc, #164]	; (8002520 <usbd_dfu_Setup.lto_priv.112+0x2d4>)
+ 800247c:	e79a      	b.n	80023b4 <usbd_dfu_Setup.lto_priv.112+0x168>
+ 800247e:	4928      	ldr	r1, [pc, #160]	; (8002520 <usbd_dfu_Setup.lto_priv.112+0x2d4>)
  8002480:	780a      	ldrb	r2, [r1, #0]
  8002482:	2a09      	cmp	r2, #9
- 8002484:	f200 8083 	bhi.w	800258e <usbd_dfu_Setup.lto_priv.110+0x342>
+ 8002484:	f200 8083 	bhi.w	800258e <usbd_dfu_Setup.lto_priv.112+0x342>
  8002488:	f44f 731b 	mov.w	r3, #620	; 0x26c
  800248c:	40d3      	lsrs	r3, r2
  800248e:	f003 0301 	and.w	r3, r3, #1
  8002492:	f083 0401 	eor.w	r4, r3, #1
  8002496:	2b00      	cmp	r3, #0
- 8002498:	d079      	beq.n	800258e <usbd_dfu_Setup.lto_priv.110+0x342>
- 800249a:	4b24      	ldr	r3, [pc, #144]	; (800252c <usbd_dfu_Setup.lto_priv.110+0x2e0>)
+ 8002498:	d079      	beq.n	800258e <usbd_dfu_Setup.lto_priv.112+0x342>
+ 800249a:	4b24      	ldr	r3, [pc, #144]	; (800252c <usbd_dfu_Setup.lto_priv.112+0x2e0>)
  800249c:	2202      	movs	r2, #2
  800249e:	701c      	strb	r4, [r3, #0]
  80024a0:	711a      	strb	r2, [r3, #4]
- 80024a2:	4b20      	ldr	r3, [pc, #128]	; (8002524 <usbd_dfu_Setup.lto_priv.110+0x2d8>)
+ 80024a2:	4b20      	ldr	r3, [pc, #128]	; (8002524 <usbd_dfu_Setup.lto_priv.112+0x2d8>)
  80024a4:	700a      	strb	r2, [r1, #0]
  80024a6:	601c      	str	r4, [r3, #0]
- 80024a8:	4b1f      	ldr	r3, [pc, #124]	; (8002528 <usbd_dfu_Setup.lto_priv.110+0x2dc>)
+ 80024a8:	4b1f      	ldr	r3, [pc, #124]	; (8002528 <usbd_dfu_Setup.lto_priv.112+0x2dc>)
  80024aa:	601c      	str	r4, [r3, #0]
- 80024ac:	e070      	b.n	8002590 <usbd_dfu_Setup.lto_priv.110+0x344>
- 80024ae:	481c      	ldr	r0, [pc, #112]	; (8002520 <usbd_dfu_Setup.lto_priv.110+0x2d4>)
+ 80024ac:	e070      	b.n	8002590 <usbd_dfu_Setup.lto_priv.112+0x344>
+ 80024ae:	481c      	ldr	r0, [pc, #112]	; (8002520 <usbd_dfu_Setup.lto_priv.112+0x2d4>)
  80024b0:	7802      	ldrb	r2, [r0, #0]
  80024b2:	2a09      	cmp	r2, #9
- 80024b4:	d80f      	bhi.n	80024d6 <usbd_dfu_Setup.lto_priv.110+0x28a>
+ 80024b4:	d80f      	bhi.n	80024d6 <usbd_dfu_Setup.lto_priv.112+0x28a>
  80024b6:	f44f 731b 	mov.w	r3, #620	; 0x26c
  80024ba:	40d3      	lsrs	r3, r2
  80024bc:	f003 0301 	and.w	r3, r3, #1
  80024c0:	f083 0201 	eor.w	r2, r3, #1
- 80024c4:	b13b      	cbz	r3, 80024d6 <usbd_dfu_Setup.lto_priv.110+0x28a>
+ 80024c4:	b13b      	cbz	r3, 80024d6 <usbd_dfu_Setup.lto_priv.112+0x28a>
  80024c6:	2302      	movs	r3, #2
  80024c8:	7003      	strb	r3, [r0, #0]
- 80024ca:	4818      	ldr	r0, [pc, #96]	; (800252c <usbd_dfu_Setup.lto_priv.110+0x2e0>)
+ 80024ca:	4818      	ldr	r0, [pc, #96]	; (800252c <usbd_dfu_Setup.lto_priv.112+0x2e0>)
  80024cc:	7103      	strb	r3, [r0, #4]
- 80024ce:	4b15      	ldr	r3, [pc, #84]	; (8002524 <usbd_dfu_Setup.lto_priv.110+0x2d8>)
+ 80024ce:	4b15      	ldr	r3, [pc, #84]	; (8002524 <usbd_dfu_Setup.lto_priv.112+0x2d8>)
  80024d0:	601a      	str	r2, [r3, #0]
- 80024d2:	4b15      	ldr	r3, [pc, #84]	; (8002528 <usbd_dfu_Setup.lto_priv.110+0x2dc>)
+ 80024d2:	4b15      	ldr	r3, [pc, #84]	; (8002528 <usbd_dfu_Setup.lto_priv.112+0x2dc>)
  80024d4:	601a      	str	r2, [r3, #0]
- 80024d6:	4b1b      	ldr	r3, [pc, #108]	; (8002544 <usbd_dfu_Setup.lto_priv.110+0x2f8>)
+ 80024d6:	4b1b      	ldr	r3, [pc, #108]	; (8002544 <usbd_dfu_Setup.lto_priv.112+0x2f8>)
  80024d8:	7f9b      	ldrb	r3, [r3, #30]
  80024da:	f003 0310 	and.w	r3, r3, #16
  80024de:	f003 06ff 	and.w	r6, r3, #255	; 0xff
- 80024e2:	b163      	cbz	r3, 80024fe <usbd_dfu_Setup.lto_priv.110+0x2b2>
+ 80024e2:	b163      	cbz	r3, 80024fe <usbd_dfu_Setup.lto_priv.112+0x2b2>
  80024e4:	4628      	mov	r0, r5
  80024e6:	f7fe fc48 	bl	8000d7a <DCD_DevDisconnect>
  80024ea:	692a      	ldr	r2, [r5, #16]
@@ -5140,16 +5140,16 @@ __STATIC_INLINE void NVIC_SystemReset(void)
  80024f2:	f36f 0341 	bfc	r3, #1, #1
  80024f6:	6053      	str	r3, [r2, #4]
  80024f8:	f001 f874 	bl	80035e4 <USB_OTG_BSP_uDelay>
- 80024fc:	e048      	b.n	8002590 <usbd_dfu_Setup.lto_priv.110+0x344>
+ 80024fc:	e048      	b.n	8002590 <usbd_dfu_Setup.lto_priv.112+0x344>
  80024fe:	884b      	ldrh	r3, [r1, #2]
  8002500:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  8002504:	4358      	muls	r0, r3
  8002506:	f001 f86d 	bl	80035e4 <USB_OTG_BSP_uDelay>
  800250a:	4634      	mov	r4, r6
- 800250c:	e040      	b.n	8002590 <usbd_dfu_Setup.lto_priv.110+0x344>
+ 800250c:	e040      	b.n	8002590 <usbd_dfu_Setup.lto_priv.112+0x344>
  800250e:	4628      	mov	r0, r5
  8002510:	f7ff fdbb 	bl	800208a <USBD_CtlError>
- 8002514:	e039      	b.n	800258a <usbd_dfu_Setup.lto_priv.110+0x33e>
+ 8002514:	e039      	b.n	800258a <usbd_dfu_Setup.lto_priv.112+0x33e>
  8002516:	bf00      	nop
  8002518:	080038d6 	.word	0x080038d6
  800251c:	080037e0 	.word	0x080037e0
@@ -5165,37 +5165,37 @@ __STATIC_INLINE void NVIC_SystemReset(void)
  8002544:	20002356 	.word	0x20002356
  8002548:	784b      	ldrb	r3, [r1, #1]
  800254a:	2b0a      	cmp	r3, #10
- 800254c:	d010      	beq.n	8002570 <usbd_dfu_Setup.lto_priv.110+0x324>
+ 800254c:	d010      	beq.n	8002570 <usbd_dfu_Setup.lto_priv.112+0x324>
  800254e:	2b0b      	cmp	r3, #11
- 8002550:	d014      	beq.n	800257c <usbd_dfu_Setup.lto_priv.110+0x330>
+ 8002550:	d014      	beq.n	800257c <usbd_dfu_Setup.lto_priv.112+0x330>
  8002552:	2b06      	cmp	r3, #6
- 8002554:	d11c      	bne.n	8002590 <usbd_dfu_Setup.lto_priv.110+0x344>
+ 8002554:	d11c      	bne.n	8002590 <usbd_dfu_Setup.lto_priv.112+0x344>
  8002556:	884b      	ldrh	r3, [r1, #2]
  8002558:	0a1b      	lsrs	r3, r3, #8
  800255a:	2b21      	cmp	r3, #33	; 0x21
- 800255c:	d105      	bne.n	800256a <usbd_dfu_Setup.lto_priv.110+0x31e>
+ 800255c:	d105      	bne.n	800256a <usbd_dfu_Setup.lto_priv.112+0x31e>
  800255e:	88ca      	ldrh	r2, [r1, #6]
- 8002560:	490d      	ldr	r1, [pc, #52]	; (8002598 <usbd_dfu_Setup.lto_priv.110+0x34c>)
+ 8002560:	490d      	ldr	r1, [pc, #52]	; (8002598 <usbd_dfu_Setup.lto_priv.112+0x34c>)
  8002562:	2a09      	cmp	r2, #9
  8002564:	bf28      	it	cs
  8002566:	2209      	movcs	r2, #9
- 8002568:	e004      	b.n	8002574 <usbd_dfu_Setup.lto_priv.110+0x328>
+ 8002568:	e004      	b.n	8002574 <usbd_dfu_Setup.lto_priv.112+0x328>
  800256a:	4621      	mov	r1, r4
  800256c:	4622      	mov	r2, r4
- 800256e:	e001      	b.n	8002574 <usbd_dfu_Setup.lto_priv.110+0x328>
- 8002570:	490a      	ldr	r1, [pc, #40]	; (800259c <usbd_dfu_Setup.lto_priv.110+0x350>)
+ 800256e:	e001      	b.n	8002574 <usbd_dfu_Setup.lto_priv.112+0x328>
+ 8002570:	490a      	ldr	r1, [pc, #40]	; (800259c <usbd_dfu_Setup.lto_priv.112+0x350>)
  8002572:	2201      	movs	r2, #1
  8002574:	4628      	mov	r0, r5
  8002576:	f7ff fd7b 	bl	8002070 <USBD_CtlSendData>
- 800257a:	e009      	b.n	8002590 <usbd_dfu_Setup.lto_priv.110+0x344>
+ 800257a:	e009      	b.n	8002590 <usbd_dfu_Setup.lto_priv.112+0x344>
  800257c:	788b      	ldrb	r3, [r1, #2]
  800257e:	2b01      	cmp	r3, #1
- 8002580:	f63f af1f 	bhi.w	80023c2 <usbd_dfu_Setup.lto_priv.110+0x176>
- 8002584:	4a05      	ldr	r2, [pc, #20]	; (800259c <usbd_dfu_Setup.lto_priv.110+0x350>)
+ 8002580:	f63f af1f 	bhi.w	80023c2 <usbd_dfu_Setup.lto_priv.112+0x176>
+ 8002584:	4a05      	ldr	r2, [pc, #20]	; (800259c <usbd_dfu_Setup.lto_priv.112+0x350>)
  8002586:	6013      	str	r3, [r2, #0]
- 8002588:	e002      	b.n	8002590 <usbd_dfu_Setup.lto_priv.110+0x344>
+ 8002588:	e002      	b.n	8002590 <usbd_dfu_Setup.lto_priv.112+0x344>
  800258a:	2402      	movs	r4, #2
- 800258c:	e000      	b.n	8002590 <usbd_dfu_Setup.lto_priv.110+0x344>
+ 800258c:	e000      	b.n	8002590 <usbd_dfu_Setup.lto_priv.112+0x344>
  800258e:	2400      	movs	r4, #0
  8002590:	4620      	mov	r0, r4
  8002592:	b004      	add	sp, #16
@@ -5284,7 +5284,7 @@ uint16_t FLASH_OB_GetWRP(void)
  8002646:	b280      	uxth	r0, r0
  8002648:	4218      	tst	r0, r3
  800264a:	d101      	bne.n	8002650 <FLASH_If_Erase+0x28>
- 800264c:	f000 fff6 	bl	800363c <FLASH_WriteProtection_Disable.part.4>
+ 800264c:	f000 fff6 	bl	800363c <FLASH_WriteProtection_Disable.part.4.lto_priv.95>
  8002650:	4b08      	ldr	r3, [pc, #32]	; (8002674 <FLASH_If_Erase+0x4c>)
  8002652:	2102      	movs	r1, #2
  8002654:	5d18      	ldrb	r0, [r3, r4]
@@ -5300,7 +5300,7 @@ uint16_t FLASH_OB_GetWRP(void)
  8002670:	40023c16 	.word	0x40023c16
  8002674:	080037b4 	.word	0x080037b4
 
-08002678 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.119>:
+08002678 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.122>:
               &DFU_USR_cb); // Passing NULL here to reduce bootloader flash requirements
 }
 
@@ -5308,18 +5308,18 @@ uint8_t HAL_DFU_USB_Handle_Vendor_Request(USB_SETUP_REQ* req, uint8_t dataStage)
     // Forward to DFU class driver
     if (req != NULL && req->bRequest == 0xee && req->wIndex == 0x0004 && req->wValue == 0x0000) {
  8002678:	4601      	mov	r1, r0
- 800267a:	b158      	cbz	r0, 8002694 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.119+0x1c>
+ 800267a:	b158      	cbz	r0, 8002694 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.122+0x1c>
  800267c:	7843      	ldrb	r3, [r0, #1]
  800267e:	2bee      	cmp	r3, #238	; 0xee
- 8002680:	d108      	bne.n	8002694 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.119+0x1c>
+ 8002680:	d108      	bne.n	8002694 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.122+0x1c>
  8002682:	8883      	ldrh	r3, [r0, #4]
  8002684:	2b04      	cmp	r3, #4
- 8002686:	d105      	bne.n	8002694 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.119+0x1c>
+ 8002686:	d105      	bne.n	8002694 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.122+0x1c>
  8002688:	8843      	ldrh	r3, [r0, #2]
- 800268a:	b91b      	cbnz	r3, 8002694 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.119+0x1c>
+ 800268a:	b91b      	cbnz	r3, 8002694 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.122+0x1c>
         return DFU_cb.Setup(&USB_OTG_dev, req);
- 800268c:	4b02      	ldr	r3, [pc, #8]	; (8002698 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.119+0x20>)
- 800268e:	4803      	ldr	r0, [pc, #12]	; (800269c <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.119+0x24>)
+ 800268c:	4b02      	ldr	r3, [pc, #8]	; (8002698 <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.122+0x20>)
+ 800268e:	4803      	ldr	r0, [pc, #12]	; (800269c <HAL_DFU_USB_Handle_Vendor_Request.lto_priv.122+0x24>)
  8002690:	689b      	ldr	r3, [r3, #8]
  8002692:	4718      	bx	r3
     }
@@ -5331,7 +5331,7 @@ uint8_t HAL_DFU_USB_Handle_Vendor_Request(USB_SETUP_REQ* req, uint8_t dataStage)
  8002698:	200023a4 	.word	0x200023a4
  800269c:	200036ec 	.word	0x200036ec
 
-080026a0 <dummy.lto_priv.118>:
+080026a0 <dummy.lto_priv.121>:
 #else
     return (((*(__IO uint32_t*)address) & APP_START_MASK) == 0x20000000);
 #endif
@@ -6059,7 +6059,7 @@ void Timing_Decrement(void)
  8002c3c:	4b14      	ldr	r3, [pc, #80]	; (8002c90 <SysTick_Handler+0x9c>)
  8002c3e:	781b      	ldrb	r3, [r3, #0]
  8002c40:	b11b      	cbz	r3, 8002c4a <SysTick_Handler+0x56>
- 8002c42:	f000 fcab 	bl	800359c <LED_Toggle.part.4>
+ 8002c42:	f000 fcab 	bl	800359c <LED_Toggle.part.4.lto_priv.118>
     {
         LED_Toggle(LED_RGB);
         TimingLED = 50;
@@ -6073,7 +6073,7 @@ void Timing_Decrement(void)
  8002c50:	4b11      	ldr	r3, [pc, #68]	; (8002c98 <SysTick_Handler+0xa4>)
  8002c52:	781b      	ldrb	r3, [r3, #0]
  8002c54:	b11b      	cbz	r3, 8002c5e <SysTick_Handler+0x6a>
- 8002c56:	f000 fca1 	bl	800359c <LED_Toggle.part.4>
+ 8002c56:	f000 fca1 	bl	800359c <LED_Toggle.part.4.lto_priv.118>
     {
         LED_Toggle(LED_RGB);
         TimingLED = 100;
@@ -6206,7 +6206,7 @@ void NMI_Handler(void)
  8002ce6:	bf00      	nop
  8002ce8:	2ff10000 	.word	0x2ff10000
 
-08002cec <led_signal_color.lto_priv.121>:
+08002cec <led_signal_color.lto_priv.124>:
 STATIC_ASSERT(led_theme_version_has_changed, LED_SIGNAL_THEME_VERSION == 1);
 
 #define UNPACK_COLOR_COMPONENT(_value) \
@@ -6389,7 +6389,7 @@ FLASH_Status FLASH_GetStatus(void)
  8002d9a:	4770      	bx	lr
  8002d9c:	40023c00 	.word	0x40023c00
 
-08002da0 <USBD_USR_MsftStrDescriptor.lto_priv.117>:
+08002da0 <USBD_USR_MsftStrDescriptor.lto_priv.120>:
  * @param  length : pointer to data length variable
  * @retval pointer to descriptor buffer
  */
@@ -6400,7 +6400,7 @@ uint8_t *  USBD_USR_MsftStrDescriptor( uint8_t speed , uint16_t *length)
  8002da2:	800b      	strh	r3, [r1, #0]
     return (uint8_t*)USBD_MsftStrDesc;
 }
- 8002da4:	4800      	ldr	r0, [pc, #0]	; (8002da8 <USBD_USR_MsftStrDescriptor.lto_priv.117+0x8>)
+ 8002da4:	4800      	ldr	r0, [pc, #0]	; (8002da8 <USBD_USR_MsftStrDescriptor.lto_priv.120+0x8>)
  8002da6:	4770      	bx	lr
  8002da8:	080038fe 	.word	0x080038fe
 
@@ -7984,7 +7984,7 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __REV(uint32_t value
  8003416:	f89d 3007 	ldrb.w	r3, [sp, #7]
  800341a:	b11b      	cbz	r3, 8003424 <BUTTON_Init.constprop.55+0x6c>
  800341c:	a801      	add	r0, sp, #4
- 800341e:	f7fe f803 	bl	8001428 <NVIC_Init.part.0>
+ 800341e:	f7fe f803 	bl	8001428 <NVIC_Init.part.0.lto_priv.93>
  8003422:	e00a      	b.n	800343a <BUTTON_Init.constprop.55+0x82>
       (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
   }
@@ -8015,7 +8015,7 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __REV(uint32_t value
  800344c:	a801      	add	r0, sp, #4
  800344e:	2301      	movs	r3, #1
  8003450:	f88d 3007 	strb.w	r3, [sp, #7]
- 8003454:	f7fd ffe8 	bl	8001428 <NVIC_Init.part.0>
+ 8003454:	f7fd ffe8 	bl	8001428 <NVIC_Init.part.0.lto_priv.93>
  8003458:	b005      	add	sp, #20
  800345a:	bd30      	pop	{r4, r5, pc}
  800345c:	20002470 	.word	0x20002470
@@ -8091,7 +8091,7 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __REV(uint32_t value
  8003504:	b538      	push	{r3, r4, r5, lr}
  8003506:	4605      	mov	r5, r0
  8003508:	4614      	mov	r4, r2
- 800350a:	f7fe fd6d 	bl	8001fe8 <MAL_CheckAdd.lto_priv.93>
+ 800350a:	f7fe fd6d 	bl	8001fe8 <MAL_CheckAdd.lto_priv.94>
  800350e:	b9b8      	cbnz	r0, 8003540 <MAL_GetStatus.constprop.3+0x3c>
  8003510:	2d01      	cmp	r5, #1
  8003512:	d815      	bhi.n	8003540 <MAL_GetStatus.constprop.3+0x3c>
@@ -8155,14 +8155,14 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __REV(uint32_t value
  8003596:	f7fd bfa1 	b.w	80014dc <Set_RGB_LED_Values>
 	...
 
-0800359c <LED_Toggle.part.4>:
+0800359c <LED_Toggle.part.4.lto_priv.118>:
  800359c:	b513      	push	{r0, r1, r4, lr}
- 800359e:	4b0e      	ldr	r3, [pc, #56]	; (80035d8 <LED_Toggle.part.4+0x3c>)
+ 800359e:	4b0e      	ldr	r3, [pc, #56]	; (80035d8 <LED_Toggle.part.4.lto_priv.118+0x3c>)
  80035a0:	781b      	ldrb	r3, [r3, #0]
- 80035a2:	b10b      	cbz	r3, 80035a8 <LED_Toggle.part.4+0xc>
- 80035a4:	4b0d      	ldr	r3, [pc, #52]	; (80035dc <LED_Toggle.part.4+0x40>)
- 80035a6:	e000      	b.n	80035aa <LED_Toggle.part.4+0xe>
- 80035a8:	4b0d      	ldr	r3, [pc, #52]	; (80035e0 <LED_Toggle.part.4+0x44>)
+ 80035a2:	b10b      	cbz	r3, 80035a8 <LED_Toggle.part.4.lto_priv.118+0xc>
+ 80035a4:	4b0d      	ldr	r3, [pc, #52]	; (80035dc <LED_Toggle.part.4.lto_priv.118+0x40>)
+ 80035a6:	e000      	b.n	80035aa <LED_Toggle.part.4.lto_priv.118+0xe>
+ 80035a8:	4b0d      	ldr	r3, [pc, #52]	; (80035e0 <LED_Toggle.part.4.lto_priv.118+0x44>)
  80035aa:	2100      	movs	r1, #0
  80035ac:	4668      	mov	r0, sp
  80035ae:	681c      	ldr	r4, [r3, #0]
@@ -8173,9 +8173,9 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __REV(uint32_t value
  80035be:	f8bd 2004 	ldrh.w	r2, [sp, #4]
  80035c2:	4313      	orrs	r3, r2
  80035c4:	b29b      	uxth	r3, r3
- 80035c6:	b10b      	cbz	r3, 80035cc <LED_Toggle.part.4+0x30>
+ 80035c6:	b10b      	cbz	r3, 80035cc <LED_Toggle.part.4.lto_priv.118+0x30>
  80035c8:	2000      	movs	r0, #0
- 80035ca:	e000      	b.n	80035ce <LED_Toggle.part.4+0x32>
+ 80035ca:	e000      	b.n	80035ce <LED_Toggle.part.4.lto_priv.118+0x32>
  80035cc:	4620      	mov	r0, r4
  80035ce:	f7ff ffcd 	bl	800356c <Set_RGB_LED_Color>
  80035d2:	b002      	add	sp, #8
@@ -8226,7 +8226,7 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __REV(uint32_t value
  8003634:	200036ec 	.word	0x200036ec
  8003638:	00030d41 	.word	0x00030d41
 
-0800363c <FLASH_WriteProtection_Disable.part.4>:
+0800363c <FLASH_WriteProtection_Disable.part.4.lto_priv.95>:
  800363c:	b538      	push	{r3, r4, r5, lr}
   * @param  None
   * @retval None
@@ -8234,16 +8234,16 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __REV(uint32_t value
 void FLASH_OB_Unlock(void)
 {
   if((FLASH->OPTCR & FLASH_OPTCR_OPTLOCK) != RESET)
- 800363e:	4b12      	ldr	r3, [pc, #72]	; (8003688 <FLASH_WriteProtection_Disable.part.4+0x4c>)
+ 800363e:	4b12      	ldr	r3, [pc, #72]	; (8003688 <FLASH_WriteProtection_Disable.part.4.lto_priv.95+0x4c>)
  8003640:	4605      	mov	r5, r0
  8003642:	695a      	ldr	r2, [r3, #20]
- 8003644:	4c11      	ldr	r4, [pc, #68]	; (800368c <FLASH_WriteProtection_Disable.part.4+0x50>)
+ 8003644:	4c11      	ldr	r4, [pc, #68]	; (800368c <FLASH_WriteProtection_Disable.part.4.lto_priv.95+0x50>)
  8003646:	07d2      	lsls	r2, r2, #31
   {
     /* Authorizes the Option Byte register programming */
     FLASH->OPTKEYR = FLASH_OPT_KEY1;
  8003648:	bf41      	itttt	mi
- 800364a:	4a11      	ldrmi	r2, [pc, #68]	; (8003690 <FLASH_WriteProtection_Disable.part.4+0x54>)
+ 800364a:	4a11      	ldrmi	r2, [pc, #68]	; (8003690 <FLASH_WriteProtection_Disable.part.4.lto_priv.95+0x54>)
  800364c:	609a      	strmi	r2, [r3, #8]
     FLASH->OPTKEYR = FLASH_OPT_KEY2;
  800364e:	f102 3244 	addmi.w	r2, r2, #1145324612	; 0x44444444
@@ -8280,7 +8280,7 @@ FLASH_Status FLASH_OB_Launch(void)
 
   /* Set the OPTSTRT bit in OPTCR register */
   *(__IO uint8_t *)OPTCR_BYTE0_ADDRESS |= FLASH_OPTCR_OPTSTRT;
- 8003662:	4a0c      	ldr	r2, [pc, #48]	; (8003694 <FLASH_WriteProtection_Disable.part.4+0x58>)
+ 8003662:	4a0c      	ldr	r2, [pc, #48]	; (8003694 <FLASH_WriteProtection_Disable.part.4.lto_priv.95+0x58>)
     {
       *(__IO uint16_t*)OPTCR_BYTE2_ADDRESS &= (~OB_WRP);
     }
@@ -8310,7 +8310,7 @@ void FLASH_OB_Lock(void)
 {
   /* Set the OPTLOCK Bit to lock the FLASH Option Byte Registers access */
   FLASH->OPTCR |= FLASH_OPTCR_OPTLOCK;
- 8003678:	4a03      	ldr	r2, [pc, #12]	; (8003688 <FLASH_WriteProtection_Disable.part.4+0x4c>)
+ 8003678:	4a03      	ldr	r2, [pc, #12]	; (8003688 <FLASH_WriteProtection_Disable.part.4.lto_priv.95+0x4c>)
  800367a:	6953      	ldr	r3, [r2, #20]
  800367c:	f043 0301 	orr.w	r3, r3, #1
  8003680:	6153      	str	r3, [r2, #20]
@@ -8491,7 +8491,7 @@ Infinite_Loop:
  800379c:	0001 0000 0000 4002 0004 0001 0002 0102     .......@........
 	...
 
-080037b4 <flashSectors.lto_priv.98>:
+080037b4 <flashSectors.lto_priv.100>:
  80037b4:	0800 1810 2820 3830 4840 5850               .... (08@HPX
 
 080037c0 <sectorAddresses>:
