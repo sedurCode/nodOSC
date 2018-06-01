@@ -1,24 +1,33 @@
 // This #include statement was automatically added by the Particle IDE.
 #include <simple-OSC.h>
 #include "armaFilter.h"
-//#include "HeadPosition.h"
+#include "HeadPosition.h"
 #include <Adafruit_LSM303_U.h>
 #include <Adafruit_Sensor.h>
 #include "math.h"
 
-SYSTEM_THREAD(ENABLED);
 
 UDP udp;
 
 unsigned int outPort = 7400;
 
-IPAddress outIp(192,168,36,254);
+
+IPAddress outIp(192,168,0,100);
+
 //IPAddress outIp(192,168,1,79);
 
 ArmaFilter armaFilter;
+ArmaFilter smoothingFilter;
 
 float smoothDirection = 0.0f;
 float heading = 0.0f;
+
+double zeroDirection = 0.0f;
+
+int buttonPin = D3;
+int ledPin = D5;
+int statusLed = D7;
+bool firstLoopFlag = true;
 
 const float Pi = 3.14159;
 /* Assign a unique ID to this sensor at the same time */
@@ -64,7 +73,9 @@ void setup(void)
 
   //waitUntil(Particle.connected);
   udp.begin(0);
-  armaFilter.setup(300.0, 400.0);
+  armaFilter.setup(300.0f, 400.0f);
+  smoothingFilter.setup(100.0f, 200.0f);
+
   /* Initialise the sensor */
   if((!accel.begin()) || (!mag.begin()))
   {
@@ -76,6 +87,11 @@ void setup(void)
   /* Display some basic information on this sensor */
   displayAccelSensorDetails();
   displayMagSensorDetails();
+
+    pinMode( buttonPin , INPUT_PULLUP); // sets pin as input
+
+    pinMode( statusLed , OUTPUT );
+    pinMode( ledPin , OUTPUT ); // sets pin as output
 }
 
 void loop(void)
@@ -86,16 +102,33 @@ void loop(void)
   accel.getEvent(&eventAccel);
   mag.getEvent(&eventMag);
 
-  double direction = (atan2(eventMag.magnetic.y, eventMag.magnetic.x) * 180.0)/ Pi;
 
-  if (direction < 0)
+
+  double direction = (atan2(eventMag.magnetic.y, eventMag.magnetic.x) * 180.0)/ Pi;
+  direction = smoothingFilter.process(float(direction));
+
+    if (direction < 0.0f) {direction += 360.0f;}
+
+   if (firstLoopFlag == true)
   {
-      direction += 360;
+      digitalWrite( ledPin, HIGH);
+      digitalWrite( statusLed, HIGH);
+      zeroDirection = direction;
+      firstLoopFlag = false;
   }
 
-  smoothDirection = armaFilter.process(float(direction));
 
-  heading = direction - smoothDirection;
+
+//   zeroDirection = armaFilter.process(float(direction));
+
+  //heading = direction - smoothDirection;
+
+  heading = -(zeroDirection - direction);
+  if (heading > 180.0f) {heading -= 360.0f;}
+
+   zeroDirection = armaFilter.process(float(direction));
+
+  //int buttonState = digitalRead( buttonPin );
   //float mappedHeading = map(float(heading),0)
   //buffer = String(heading);
 
@@ -112,18 +145,35 @@ void loop(void)
   Particle.publish("heading", String(heading), PRIVATE);
   delay(100);
   */
-  OSCMessage outMessage("/pong");
-  outMessage.addFloat(float(heading));
-  outMessage.send(udp,outIp,outPort);
 
+  //OSCMessage outMessage("/rawHeading");
+  //outMessage.addFloat(float(direction));
+  //outMessage.send(udp,outIp,outPort);
 
-  OSCMessage outMessageSmooth("/pongsmooth");
-  outMessageSmooth.addFloat(smoothDirection);
-  outMessageSmooth.send(udp,outIp,outPort);
+  //Serial.printf
+  Serial.print  ("Direction:       "); Serial.println(float(direction));
+  Serial.print  ("Heading:       "); Serial.println(float(heading));
+  //Serial.print  ("Zero:       "); Serial.println(float(zeroDirection));
 
-  Serial.print  ("Heading:       "); Serial.println(heading, DEC);
-  Serial.print  ("Direction:     "); Serial.println(smoothDirection, DEC);
-  Serial.flush();
+  OSCMessage outMessageCentred("yaw");
+  outMessageCentred.addFloat(float(heading));
+  outMessageCentred.send(udp,outIp,outPort);
+
+  //OSCMessage outMessageSmooth("/smoothedHeading");
+  //outMessageSmooth.addFloat(float(smoothDirection));
+  //outMessageSmooth.send(udp,outIp,outPort);
+
+//     if( buttonState == LOW )
+//   {
+//       zeroDirection = direction;
+//     // turn the LED On
+//     digitalWrite( ledPin, HIGH);
+//   }else{
+//     // otherwise
+//     // turn the LED Off
+//     digitalWrite( ledPin, LOW);
+
+//   }
 
 //  if(Udp.sendPacket(buffer, sizeof(buffer), remoteIP, sendPort) < 0)
 //  {
